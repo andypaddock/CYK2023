@@ -1,0 +1,86 @@
+#video-container {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+  }
+}
+#camp-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  @include backgroundCover;
+}
+.camp-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+  .heading-1 {
+    padding-bottom: 3rem;
+    font-size: 5rem;
+  }
+}
+.camp-nav {
+  display: flex;
+  width: 100%;
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 1rem;
+    width: 100%;
+    li {
+      border: 1px solid $color-white;
+      padding: 2rem 3rem;
+      flex: 1;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}
+.section-overview {
+  position: relative;
+  .bg-image {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .overview-intro {
+    padding: 5rem 0;
+  }
+  .overview-content {
+    padding: 0 0 5rem;
+    @media only screen and (min-width: $bp-large) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+    }
+    &--image {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+.camp-cta {
+  background: $color-primary;
+  padding: 3rem 0;
+  text-align: center;
+}

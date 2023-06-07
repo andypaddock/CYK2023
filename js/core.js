@@ -291,3 +291,62 @@ $(".toggle-block label").click(function () {
 // Nav
 // ========================================
 
+// document.addEventListener("DOMContentLoaded", function () {
+//     var videoContainer = document.getElementById("video-container");
+//     var video = document.getElementById("video");
+//     var content = document.getElementById("camp-content");
+//     var fadeDelayInSeconds = parseInt(videoContainer.dataset.fadeDelay, 10) || 5; // Set the delay in seconds before the fade effect starts, defaults to 5 seconds
+
+//     video.play(); // Start playing the video
+
+//     setTimeout(function () {
+//         fadeOut(video, 1000);
+//     }, fadeDelayInSeconds * 1000); // Convert seconds to milliseconds
+
+//     // Function to fade out the video
+//     function fadeOut(videoElement, duration) {
+//         var interval = 50;
+//         var step = interval / duration;
+//         var fadeInterval = setInterval(function () {
+//             videoElement.style.opacity -= step;
+//             if (videoElement.style.opacity <= 0) {
+//                 clearInterval(fadeInterval);
+//                 videoElement.style.display = "none";
+//                 content.style.opacity = 1; // Make the content fully visible
+//             }
+//         }, interval);
+//     }
+
+//   // Function to fade out an element
+//   function fadeOut(element, duration, callback) {
+//     element.style.opacity = 1;
+
+//     var interval = 50;
+//     var step = interval / duration;
+//     var fadeOutInterval = setInterval(function () {
+//       element.style.opacity -= step;
+//       if (element.style.opacity <= 0) {
+//         clearInterval(fadeOutInterval);
+//         element.style.display = "none";
+//         callback();
+//       }
+//     }, interval);
+//   }
+
+//   // Function to fade in an element
+//   function fadeIn(element, duration) {
+//     element.style.opacity = 0;
+//     element.style.display = "block";
+
+//     var interval = 50;
+//     var step = interval / duration;
+//     var fadeInInterval = setInterval(function () {
+//       element.style.opacity = Number(element.style.opacity) + step;
+//       if (element.style.opacity >= 1) {
+//         clearInterval(fadeInInterval);
+//       }
+//     }, interval);
+//   }
+
+//   // Rest of the code...
+// });
