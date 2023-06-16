@@ -6,8 +6,6 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    position: absolute;
-    z-index: -1;
   }
 }
 #camp-content {
@@ -16,71 +14,109 @@
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   @include backgroundCover;
+  z-index: -1;
 }
 .camp-heading {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 1rem;
-  .heading-1 {
-    padding-bottom: 3rem;
-    font-size: 5rem;
-  }
+  padding-bottom: 5rem;
 }
 .camp-nav {
   display: flex;
-  width: 100%;
   ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    grid-gap: 1rem;
-    width: 100%;
     li {
-      border: 1px solid $color-white;
-      padding: 2rem 3rem;
-      flex: 1;
-      text-align: center;
-      text-transform: uppercase;
+      padding: 1rem 3rem;
     }
   }
 }
-.section-overview {
+
+.et-hero-tabs,
+.et-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
   position: relative;
-  .bg-image {
+  text-align: center;
+  padding: 0 2em;
+  h1 {
+    z-index: 2;
+  }
+  h3 {
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    opacity: 0.6;
+  }
+  video {
     position: absolute;
     top: 0;
-    z-index: -1;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-  .overview-intro {
-    padding: 5rem 0;
-  }
-  .overview-content {
-    padding: 0 0 5rem;
-    @media only screen and (min-width: $bp-large) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 2rem;
-    }
-    &--image {
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
+    left: 0;
+    object-fit: cover;
   }
 }
-.camp-cta {
-  background: $color-primary;
-  padding: 3rem 0;
-  text-align: center;
+
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 1rem;
+  position: absolute;
+  bottom: 2rem;
+  width: 120rem;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  &--top {
+    position: fixed;
+    top: 0;
+  }
+}
+
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: white;
+  border: 1px solid white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  &:hover {
+    color: white;
+    background: rgba(255, 148, 82, 0.8);
+    transition: all 0.5s ease;
+  }
+}
+
+.et-hero-tab-slider {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 6px;
+  background: #ff9452;
+  transition: left 0.3s ease;
+}
+
+@media (min-width: 800px) {
+  .et-hero-tabs,
+  .et-slide {
+    h1 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
 }
