@@ -216,7 +216,7 @@ if( $link ):
         </video>
         <div class="hero-logo">
             <a href="<?php echo site_url(); ?>">
-                <?php get_template_part('inc/img/logo'); ?>
+                <?php get_template_part('inc/img/logo-main'); ?>
             </a>
         </div>
         <div class="hero-textblock">

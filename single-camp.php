@@ -20,13 +20,9 @@ $pagebg = get_field('background_image');
 
 <?php get_template_part('template-parts/accom'); ?>
 
+<?php get_template_part('template-parts/campgallery'); ?>
 
-<section class="et-slide container camp-content--gallery" id="tab-gallery">
-    <div class="row">
-        <h1>ES6</h1>
-        <h3>something about es6</h3>
-    </div>
-</section>
+
 <section class="et-slide container camp-content--activities" id="tab-activities">
     <div class="row">
         <h1>ES6</h1>

@@ -35,9 +35,8 @@
     <header id="header" class="container">
         <nav id="main-navigation" class="row navigation">
             <div class="logo">
-                <a href="<?php echo site_url(); ?>">
-                    <?php get_template_part('inc/img/logo'); ?><h1 class="site-logo-header">
-                        <?php the_field('header_title', 'options'); ?></h1>
+                <a href="<?php echo site_url(); ?>" title="<?php the_field('header_title', 'options'); ?>">
+                    <?php get_template_part('inc/img/logo'); ?>
                 </a>
             </div>
             <div id="main-menu" class="main-menu">

@@ -1,7 +1,7 @@
   <!-- Hero -->
   <?php
 $heroImage = get_field('hero_image');?>
-  <section class="et-hero-tabs container">
+  <section id="camp-tabs" class="et-hero-tabs container">
       <video id="video" width="100%" height="100%" autoplay loop muted>
           <source src="/wp-content/uploads/2023/06/coast_-_88507-720p.mp4" type="video/mp4">
       </video>

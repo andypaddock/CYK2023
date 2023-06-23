@@ -26,28 +26,30 @@ jQuery(document).ready(function($) {
  // ========== NAVBAR SCROLL AWAY
 
 
-   $(document).ready(function () {
-    "use strict";
+ $(document).ready(function () {
+  "use strict";
 
-    var c,
-      currentScrollTop = 0,
-      navbar = $("#navbar");
+  var c,
+    currentScrollTop = 0,
+    navbar = $("#header"),
+    campTabs = $("#camp-tabs");
 
-    $(window).scroll(function () {
-      var a = $(window).scrollTop();
-      var b = navbar.height();
+  $(window).scroll(function () {
+    var a = $(window).scrollTop();
+    var b = navbar.height();
 
-      currentScrollTop = a;
+    currentScrollTop = a;
 
-      if (c < currentScrollTop && a > b + b) {
-        navbar.addClass("scrollUp");
-      } else if (c > currentScrollTop && !(a <= b)) {
-        navbar.removeClass("scrollUp");
-      }
-      c = currentScrollTop;
-    });
+    if (c < currentScrollTop && a > b + b) {
+      navbar.addClass("scrollUp");
+      campTabs.addClass("scrollUp");
+    } else if (c > currentScrollTop && !(a <= b)) {
+      navbar.removeClass("scrollUp");
+      campTabs.removeClass("scrollUp");
+    }
+    c = currentScrollTop;
   });
-
+});
 
 
 
@@ -117,6 +119,13 @@ $('.awards-wrapper').slick({
       }
     }
   ]
+});
+
+
+$('.accom-slider').slick({
+  adaptiveHeight: true,
+  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
+  nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
 });
 
 
@@ -285,29 +294,6 @@ $(".toggle-block label").click(function () {
     $(this).next().slideToggle();
   });
 
-
-
- $(document).ready(function () {
-    "use strict";
-
-    var c,
-      currentScrollTop = 0,
-      navbar = $("#header");
-
-    $(window).scroll(function () {
-      var a = $(window).scrollTop();
-      var b = navbar.height();
-
-      currentScrollTop = a;
-
-      if (c < currentScrollTop && a > b + b) {
-        navbar.addClass("scrollUp");
-      } else if (c > currentScrollTop && !(a <= b)) {
-        navbar.removeClass("scrollUp");
-      }
-      c = currentScrollTop;
-    });
-  });
 
 
 class StickyNavigation {
