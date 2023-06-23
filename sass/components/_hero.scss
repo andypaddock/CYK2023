@@ -151,3 +151,13 @@
     }
   }
 }
+.hero-logo {
+  svg {
+    padding: 3rem;
+  }
+  #large-logo {
+    path {
+      fill: $color-white;
+    }
+  }
+}

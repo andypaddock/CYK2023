@@ -14,9 +14,13 @@
 }
 
 @mixin backgroundCover {
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
+  background-size: cover;
   background-position: center center;
+  background-repeat: no-repeat;
+}
+@mixin backgroundContain {
+  background-size: contain;
+  background-position: top;
   background-repeat: no-repeat;
 }
 @mixin lineClamp3 {

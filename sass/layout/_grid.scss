@@ -29,9 +29,9 @@ section {
   &.alt-bg {
     background-color: $color-alt-bg;
   }
-  // &:first-of-type {
-  //   padding-top: 10rem;
-  // }
+  &:first-of-type {
+    padding-top: 10rem;
+  }
   .flex-col {
   }
 }
@@ -73,6 +73,20 @@ section {
   }
   &.extended {
     grid-column: full-start / full-end;
+  }
+  .spacer {
+    &.small {
+      padding: 1rem;
+    }
+    &.medium {
+      padding: 2.5rem;
+    }
+    &.large {
+      padding: 5rem;
+    }
+    &.massive {
+      padding: 10rem;
+    }
   }
 }
 

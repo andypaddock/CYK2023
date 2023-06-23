@@ -26,28 +26,30 @@ jQuery(document).ready(function($) {
  // ========== NAVBAR SCROLL AWAY
 
 
-   $(document).ready(function () {
-    "use strict";
+ $(document).ready(function () {
+  "use strict";
 
-    var c,
-      currentScrollTop = 0,
-      navbar = $("#navbar");
+  var c,
+    currentScrollTop = 0,
+    navbar = $("#header"),
+    campTabs = $("#camp-tabs");
 
-    $(window).scroll(function () {
-      var a = $(window).scrollTop();
-      var b = navbar.height();
+  $(window).scroll(function () {
+    var a = $(window).scrollTop();
+    var b = navbar.height();
 
-      currentScrollTop = a;
+    currentScrollTop = a;
 
-      if (c < currentScrollTop && a > b + b) {
-        navbar.addClass("scrollUp");
-      } else if (c > currentScrollTop && !(a <= b)) {
-        navbar.removeClass("scrollUp");
-      }
-      c = currentScrollTop;
-    });
+    if (c < currentScrollTop && a > b + b) {
+      navbar.addClass("scrollUp");
+      campTabs.addClass("scrollUp");
+    } else if (c > currentScrollTop && !(a <= b)) {
+      navbar.removeClass("scrollUp");
+      campTabs.removeClass("scrollUp");
+    }
+    c = currentScrollTop;
   });
-
+});
 
 
 
@@ -101,6 +103,29 @@ $('.awards-wrapper').slick({
   nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
   autoplay: true,
   autoplaySpeed: 7000,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        slidesToShow: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+
+$('.accom-slider').slick({
+  adaptiveHeight: true,
+  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
+  nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
 });
 
 
@@ -261,27 +286,90 @@ $(".toggle-block label").click(function () {
   });
 
 
- $(document).ready(function () {
-    "use strict";
-
-    var c,
-      currentScrollTop = 0,
-      navbar = $("#header");
-
-    $(window).scroll(function () {
-      var a = $(window).scrollTop();
-      var b = navbar.height();
-
-      currentScrollTop = a;
-
-      if (c < currentScrollTop && a > b + b) {
-        navbar.addClass("scrollUp");
-      } else if (c > currentScrollTop && !(a <= b)) {
-        navbar.removeClass("scrollUp");
-      }
-      c = currentScrollTop;
-    });
+  $(".timeline-event__details .label").click(function () {
+    var otherLabels = $(this).parent().siblings(".timeline-event__details").find("label");
+    otherLabels.removeClass("collapsed");
+    otherLabels.next().slideUp();
+    $(this).toggleClass("collapsed");
+    $(this).next().slideToggle();
   });
+
+
+
+class StickyNavigation {
+	constructor() {
+		this.currentId = null;
+		this.currentTab = null;
+		this.tabContainerHeight = 70;
+		this.bindEvents();
+	}
+
+	bindEvents() {
+		$('.et-hero-tab').on('click', (event) => this.onTabClick(event));
+		$(window).on('scroll', () => this.onScroll());
+		$(window).on('resize', () => this.onResize());
+	}
+
+	onTabClick(event) {
+		event.preventDefault();
+		const $clickedTab = $(event.currentTarget);
+		const target = $clickedTab.attr('href');
+		const scrollTop = $(target).offset().top - this.tabContainerHeight + 1;
+		$('html, body').animate({ scrollTop }, 600);
+		this.activateTab($clickedTab);
+	}
+
+	activateTab($tab) {
+		$('.et-hero-tab').removeClass('active');
+		$tab.addClass('active');
+	}
+
+	onScroll() {
+		this.checkTabContainerPosition();
+		this.findCurrentTabSelector();
+	}
+
+	onResize() {
+		if (this.currentId) {
+			this.setSliderCss();
+		}
+	}
+
+	checkTabContainerPosition() {
+		const offset = $('.et-hero-tabs').offset().top + $('.et-hero-tabs').height() - this.tabContainerHeight;
+		const $tabsContainer = $('.et-hero-tabs-container');
+		$tabsContainer.toggleClass('et-hero-tabs-container--top', $(window).scrollTop() > offset);
+	}
+
+	findCurrentTabSelector() {
+		const self = this;
+		const $tabs = $('.et-hero-tab');
+		$tabs.each(function () {
+			const $tab = $(this);
+			const id = $tab.attr('href');
+			const offsetTop = $(id).offset().top - self.tabContainerHeight;
+			const offsetBottom = offsetTop + $(id).height();
+			if ($(window).scrollTop() > offsetTop && $(window).scrollTop() < offsetBottom) {
+				if (self.currentId !== id || self.currentId === null) {
+					self.currentId = id;
+					self.currentTab = $tab;
+					self.setSliderCss();
+					self.activateTab($tab);
+				}
+				return false; // Exit the loop early if a match is found
+			}
+		});
+	}
+
+	setSliderCss() {
+		const $slider = $('.et-hero-tab-slider');
+		const width = this.currentTab ? this.currentTab.css('width') : 0;
+		$slider.css('width', width);
+	}
+}
+
+new StickyNavigation();
+
 
 
 }); //Don't remove ---- end of jQuery wrapper
@@ -291,62 +379,64 @@ $(".toggle-block label").click(function () {
 // Nav
 // ========================================
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     var videoContainer = document.getElementById("video-container");
-//     var video = document.getElementById("video");
-//     var content = document.getElementById("camp-content");
-//     var fadeDelayInSeconds = parseInt(videoContainer.dataset.fadeDelay, 10) || 5; // Set the delay in seconds before the fade effect starts, defaults to 5 seconds
 
-//     video.play(); // Start playing the video
+document.addEventListener("DOMContentLoaded", function () {
+    var videoContainer = document.getElementById("video-container");
+    var video = document.getElementById("video");
+    var content = document.getElementById("camp-content");
+    var fadeDelayInSeconds = parseInt(videoContainer.dataset.fadeDelay, 10) || 5; // Set the delay in seconds before the fade effect starts, defaults to 5 seconds
 
-//     setTimeout(function () {
-//         fadeOut(video, 1000);
-//     }, fadeDelayInSeconds * 1000); // Convert seconds to milliseconds
+    video.play(); // Start playing the video
 
-//     // Function to fade out the video
-//     function fadeOut(videoElement, duration) {
-//         var interval = 50;
-//         var step = interval / duration;
-//         var fadeInterval = setInterval(function () {
-//             videoElement.style.opacity -= step;
-//             if (videoElement.style.opacity <= 0) {
-//                 clearInterval(fadeInterval);
-//                 videoElement.style.display = "none";
-//                 content.style.opacity = 1; // Make the content fully visible
-//             }
-//         }, interval);
-//     }
+    setTimeout(function () {
+        fadeOut(video, 1000);
+    }, fadeDelayInSeconds * 1000); // Convert seconds to milliseconds
 
-//   // Function to fade out an element
-//   function fadeOut(element, duration, callback) {
-//     element.style.opacity = 1;
+    // Function to fade out the video
+    function fadeOut(videoElement, duration) {
+        var interval = 50;
+        var step = interval / duration;
+        var fadeInterval = setInterval(function () {
+            videoElement.style.opacity -= step;
+            if (videoElement.style.opacity <= 0) {
+                clearInterval(fadeInterval);
+                videoElement.style.display = "none";
+                content.style.opacity = 1; // Make the content fully visible
+            }
+        }, interval);
+    }
 
-//     var interval = 50;
-//     var step = interval / duration;
-//     var fadeOutInterval = setInterval(function () {
-//       element.style.opacity -= step;
-//       if (element.style.opacity <= 0) {
-//         clearInterval(fadeOutInterval);
-//         element.style.display = "none";
-//         callback();
-//       }
-//     }, interval);
-//   }
+  // Function to fade out an element
+  function fadeOut(element, duration, callback) {
+    element.style.opacity = 1;
 
-//   // Function to fade in an element
-//   function fadeIn(element, duration) {
-//     element.style.opacity = 0;
-//     element.style.display = "block";
+    var interval = 50;
+    var step = interval / duration;
+    var fadeOutInterval = setInterval(function () {
+      element.style.opacity -= step;
+      if (element.style.opacity <= 0) {
+        clearInterval(fadeOutInterval);
+        element.style.display = "none";
+        callback();
+      }
+    }, interval);
+  }
 
-//     var interval = 50;
-//     var step = interval / duration;
-//     var fadeInInterval = setInterval(function () {
-//       element.style.opacity = Number(element.style.opacity) + step;
-//       if (element.style.opacity >= 1) {
-//         clearInterval(fadeInInterval);
-//       }
-//     }, interval);
-//   }
+  // Function to fade in an element
+  function fadeIn(element, duration) {
+    element.style.opacity = 0;
+    element.style.display = "block";
 
-//   // Rest of the code...
-// });
+    var interval = 50;
+    var step = interval / duration;
+    var fadeInInterval = setInterval(function () {
+      element.style.opacity = Number(element.style.opacity) + step;
+      if (element.style.opacity >= 1) {
+        clearInterval(fadeInInterval);
+      }
+    }, interval);
+  }
+
+  // Rest of the code...
+});
+
