@@ -82,3 +82,15 @@ p {
 .font-italic {
   font-style: italic;
 }
+
+.read-more p:not(:first-child) {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.5s ease-in-out;
+  margin-bottom: 0;
+}
+
+.read-more.expanded p {
+  max-height: 1000px;
+  margin-bottom: 2rem;
+}

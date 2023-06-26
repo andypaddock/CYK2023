@@ -70,7 +70,7 @@
   z-index: 10;
   &--top {
     position: fixed;
-    top: 7rem;
+    top: 8rem;
     transition: all 0.5s ease;
   }
 }
@@ -78,6 +78,7 @@
 .et-hero-tab {
   display: flex;
   justify-content: center;
+  background: rgba($color-bg-light, 0.8);
   align-items: center;
   flex: 1;
   color: white;
@@ -102,7 +103,7 @@
 #camp-tabs {
   &.scrollUp {
     .et-hero-tabs-container--top {
-      top: 0;
+      top: 1rem;
     }
   }
 }
@@ -160,8 +161,10 @@
     }
   }
   &--accom {
+    padding: 10rem 0;
     .accom-slider {
       display: grid;
+      padding-bottom: 10rem;
       .image-text-block {
         display: flex;
         flex-wrap: wrap;
@@ -225,6 +228,48 @@
       background: $color-primary;
       display: grid;
       place-content: center;
+      padding: 1rem 0;
+    }
+  }
+  &--gallery {
+    .gallery-outer {
+      padding: 2rem 0 10rem 0;
+    }
+    .gallery-video {
+      position: relative;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      a {
+      }
+    }
+    .gallery-filters {
+      text-align: initial;
+      padding: 10rem 0 0;
+      button {
+        border: transparent;
+        text-transform: uppercase;
+        font-family: $font-primary;
+        font-size: 1.4rem;
+        cursor: pointer;
+      }
+      .filter-all {
+        padding-right: 4rem;
+      }
+      .filters {
+        font-weight: 200;
+        padding: 0 2rem;
+        line-height: 1;
+        border-right: 1px solid $color-black;
+        &.mixitup-control-active {
+          color: $color-primary;
+        }
+        &:last-child {
+          border-right: none;
+        }
+      }
     }
   }
 }

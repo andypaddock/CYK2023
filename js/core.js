@@ -1,6 +1,8 @@
 //@prepros-prepend fslightbox.js
 //@prepros-prepend slick.min.js
 //@prepros-prepend scrollreveal.js
+//@prepros-prepend mixitup.min.js
+//@prepros-prepend read-more.js
 
 jQuery(document).ready(function($) {
 
@@ -372,6 +374,22 @@ new StickyNavigation();
 
 
 
+
+var containerEl = document.querySelector(".gallery-wrapper");
+  var mixer;
+
+  if (containerEl) {
+    mixer = mixitup(containerEl, {
+      // multifilter: {
+      //   enable: true,
+      // },
+    });
+  }
+
+
+  //NEW READMORE TOGGLE FOR PRINTING
+
+
 }); //Don't remove ---- end of jQuery wrapper
 
 
@@ -440,3 +458,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // Rest of the code...
 });
 
+const readMoreLink = document.querySelector('.read-more-link');
+const paragraphs = document.querySelectorAll('.read-more p');
+
+if (paragraphs.length <= 1) {
+  readMoreLink.style.display = 'none';
+}
+
+readMoreLink.addEventListener('click', function(e) {
+  e.preventDefault();
+  
+  document.querySelector('.read-more').classList.toggle('expanded');
+  readMoreLink.textContent = (readMoreLink.textContent === 'Read More') ? 'Read Less' : 'Read More';
+});

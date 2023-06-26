@@ -5,6 +5,7 @@
         $image = get_sub_field('image');
         $size = 'large'; // (thumbnail, medium, large, full or custom size)
         $textType = get_sub_field('select_text_block');
+        $readMore = get_sub_field('show_first');
         ?>
         <div class="text mb-sm">
             <?php if ($textType === 'one') : ?>
@@ -15,7 +16,12 @@
                         <h2
                             class="<?php the_sub_field('heading_size'); ?> <?php the_sub_field('heading_size'); ?><?php the_sub_field('heading_colour'); ?>">
                             <?php the_sub_field('title'); ?></h2>
-                        <?php the_sub_field('paragraphs'); ?>
+                        <article class="<?php if (get_sub_field('show_first')): echo 'read-more' ; endif;?>">
+                            <?php the_sub_field('paragraphs'); ?>
+                            <?php if (get_sub_field('show_first')):?>
+                           <a href="#" class="read-more-link">Read More</a>
+                            <?php endif;?>
+                        </article>
                         <?php
                             $link = get_sub_field('link');
                             if ($link) :
@@ -23,34 +29,10 @@
                                 $link_title = $link['title'];
                                 $link_target = $link['target'] ? $link['target'] : '_self';
                             ?>
-                        <a  href="<?php echo esc_url($link_url); ?>"
+                        <a href="<?php echo esc_url($link_url); ?>"
                             target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
                         <?php endif; ?>
 
-                    </div>
-                </div>
-            </div>
-
-            <?php elseif ($textType === 'two') : ?>
-
-            <div class="text__two">
-                <div class="text-block <?php the_sub_field('text_align'); ?>">
-                    <div class="text-block__wrapper fmbottom <?php the_sub_field('tb_bg'); ?>">
-
-                        <h2
-                            class="<?php the_sub_field('heading_size'); ?> <?php the_sub_field('heading_size'); ?><?php the_sub_field('heading_colour'); ?> children">
-                            <?php the_sub_field('title'); ?></h2>
-                        <?php the_sub_field('paragraphs'); ?>
-                        <?php
-                            $link = get_sub_field('link');
-                            if ($link) :
-                                $link_url = $link['url'];
-                                $link_title = $link['title'];
-                                $link_target = $link['target'] ? $link['target'] : '_self';
-                            ?>
-                        <a class="" href="<?php echo esc_url($link_url); ?>"
-                            target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>

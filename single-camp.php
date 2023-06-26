@@ -25,14 +25,14 @@ $pagebg = get_field('background_image');
 
 <section class="et-slide container camp-content--activities" id="tab-activities">
     <div class="row">
-        <h1>ES6</h1>
-        <h3>something about es6</h3>
+        <h1>Activities</h1>
+        <h3>something about Activities</h3>
     </div>
 </section>
 <section class="et-slide container camp-content--booking" id="tab-booking">
     <div class="row">
-        <h1>ES6</h1>
-        <h3>something about es6</h3>
+        <h1>Booking</h1>
+        <h3>something about Booking</h3>
     </div>
 </section>
 
