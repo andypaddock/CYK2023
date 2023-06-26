@@ -1,9 +1,10 @@
   <!-- Hero -->
   <?php
-$heroImage = get_field('hero_image');?>
+$posterImage = get_field('poster_image');
+$heroVideo = get_field('hero_video');?>
   <section id="camp-tabs" class="et-hero-tabs container">
-      <video id="video" width="100%" height="100%" autoplay loop muted>
-          <source src="/wp-content/uploads/2023/06/coast_-_88507-720p.mp4" type="video/mp4">
+      <video id="video" width="100%" height="100%" autoplay loop muted poster="<?php echo esc_url($posterImage['url']); ?>">
+          <source src="<?php echo $heroVideo['url']; ?>" type="video/mp4">
       </video>
       <div class="row">
           <h1 class="heading-1 heading-1--light"><?php the_title(); ?></h1>

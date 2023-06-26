@@ -24,11 +24,15 @@
           color: $color-primary-light;
         }
       }
+      .read-more-link {
+        padding-top: 0;
+      }
       h2 {
         padding-bottom: 3rem;
       }
     }
     &__one {
+      padding: 5rem 0;
     }
     &__two {
       columns: 2;
