@@ -394,7 +394,30 @@ var containerEl = document.querySelector(".gallery-wrapper");
   }
 
 
-  //NEW READMORE TOGGLE FOR PRINTING
+// Hide all tab content except the first one
+$('.tabgroup > div').hide();
+$('.tabgroup > div:first-of-type').show();
+
+
+// Handle tab click event
+$('.tabs a').click(function(e) {
+  e.preventDefault();
+
+  // Get the necessary elements
+  var $this = $(this),
+    tabgroup = '#' + $this.parents('.tabs').data('tabgroup'),
+    target = $this.attr('href');
+
+  // Update active classes
+  $('.tabs a').removeClass('active');
+  $this.addClass('active');
+
+  // Hide all tab content and show the selected one
+  $(tabgroup).children('div').hide();
+  $(target).show();
+});
+
+    
 
 
 }); //Don't remove ---- end of jQuery wrapper
@@ -405,65 +428,65 @@ var containerEl = document.querySelector(".gallery-wrapper");
 // ========================================
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    var videoContainer = document.getElementById("video-container");
-    var video = document.getElementById("video");
-    var content = document.getElementById("camp-content");
-    var fadeDelayInSeconds = parseInt(videoContainer.dataset.fadeDelay, 10) || 5; // Set the delay in seconds before the fade effect starts, defaults to 5 seconds
+// document.addEventListener("DOMContentLoaded", function () {
+//     var videoContainer = document.getElementById("video-container");
+//     var video = document.getElementById("video");
+//     var content = document.getElementById("camp-content");
+//     var fadeDelayInSeconds = parseInt(videoContainer.dataset.fadeDelay, 10) || 5; // Set the delay in seconds before the fade effect starts, defaults to 5 seconds
 
-    video.play(); // Start playing the video
+//     video.play(); // Start playing the video
 
-    setTimeout(function () {
-        fadeOut(video, 1000);
-    }, fadeDelayInSeconds * 1000); // Convert seconds to milliseconds
+//     setTimeout(function () {
+//         fadeOut(video, 1000);
+//     }, fadeDelayInSeconds * 1000); // Convert seconds to milliseconds
 
-    // Function to fade out the video
-    function fadeOut(videoElement, duration) {
-        var interval = 50;
-        var step = interval / duration;
-        var fadeInterval = setInterval(function () {
-            videoElement.style.opacity -= step;
-            if (videoElement.style.opacity <= 0) {
-                clearInterval(fadeInterval);
-                videoElement.style.display = "none";
-                content.style.opacity = 1; // Make the content fully visible
-            }
-        }, interval);
-    }
+//     // Function to fade out the video
+//     function fadeOut(videoElement, duration) {
+//         var interval = 50;
+//         var step = interval / duration;
+//         var fadeInterval = setInterval(function () {
+//             videoElement.style.opacity -= step;
+//             if (videoElement.style.opacity <= 0) {
+//                 clearInterval(fadeInterval);
+//                 videoElement.style.display = "none";
+//                 content.style.opacity = 1; // Make the content fully visible
+//             }
+//         }, interval);
+//     }
 
-  // Function to fade out an element
-  function fadeOut(element, duration, callback) {
-    element.style.opacity = 1;
+//   // Function to fade out an element
+//   function fadeOut(element, duration, callback) {
+//     element.style.opacity = 1;
 
-    var interval = 50;
-    var step = interval / duration;
-    var fadeOutInterval = setInterval(function () {
-      element.style.opacity -= step;
-      if (element.style.opacity <= 0) {
-        clearInterval(fadeOutInterval);
-        element.style.display = "none";
-        callback();
-      }
-    }, interval);
-  }
+//     var interval = 50;
+//     var step = interval / duration;
+//     var fadeOutInterval = setInterval(function () {
+//       element.style.opacity -= step;
+//       if (element.style.opacity <= 0) {
+//         clearInterval(fadeOutInterval);
+//         element.style.display = "none";
+//         callback();
+//       }
+//     }, interval);
+//   }
 
-  // Function to fade in an element
-  function fadeIn(element, duration) {
-    element.style.opacity = 0;
-    element.style.display = "block";
+//   // Function to fade in an element
+//   function fadeIn(element, duration) {
+//     element.style.opacity = 0;
+//     element.style.display = "block";
 
-    var interval = 50;
-    var step = interval / duration;
-    var fadeInInterval = setInterval(function () {
-      element.style.opacity = Number(element.style.opacity) + step;
-      if (element.style.opacity >= 1) {
-        clearInterval(fadeInInterval);
-      }
-    }, interval);
-  }
+//     var interval = 50;
+//     var step = interval / duration;
+//     var fadeInInterval = setInterval(function () {
+//       element.style.opacity = Number(element.style.opacity) + step;
+//       if (element.style.opacity >= 1) {
+//         clearInterval(fadeInInterval);
+//       }
+//     }, interval);
+//   }
 
-  // Rest of the code...
-});
+//   // Rest of the code...
+// });
 
 const readMoreLink = document.querySelector('.read-more-link');
 const paragraphs = document.querySelectorAll('.read-more p');

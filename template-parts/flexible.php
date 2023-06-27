@@ -90,6 +90,8 @@
 <?php get_template_part('template-parts/slidergallery'); ?>
 <?php elseif (get_row_layout() == 'contactdetails') : ?>
 <?php get_template_part('template-parts/contactdetails'); ?>
+<?php elseif (get_row_layout() == 'formtabs') : ?>
+<?php get_template_part('template-parts/formtabs'); ?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>
