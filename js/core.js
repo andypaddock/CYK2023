@@ -130,6 +130,13 @@ $('.accom-slider').slick({
   nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
 });
 
+$('.slider-gallery').slick({
+  infinite: true,
+  slidesToShow: 3,
+  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
+  nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
+});
+
 
 
 $(document).ready(function () {

@@ -21,5 +21,4 @@ if ($images) : ?>
         </div>
         <?php endif; ?>
     </div>
-
 </section>

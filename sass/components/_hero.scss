@@ -55,15 +55,26 @@
     }
   }
 }
-.sub-page.hero-wrapper {
+.hero-wrapper {
   padding-bottom: 0rem;
-  section.header {
+  section.container {
     height: 60vh;
     min-height: 35rem;
     padding-top: 0;
     grid-template-rows: 1fr;
     video {
       top: 19rem;
+    }
+    &.full-image {
+      @include backgroundCover;
+
+      .hero-textblock {
+        grid-column: center-start / center-end;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 10vh;
+      }
     }
     &.hero-full {
       height: calc(100vh - $headerheight);
@@ -95,6 +106,12 @@
       video {
         height: calc(50vh - $headerheight);
       }
+    }
+    &.anchor-bottom {
+      background-position: bottom;
+    }
+    &.anchor-top {
+      background-position: top;
     }
   }
 }

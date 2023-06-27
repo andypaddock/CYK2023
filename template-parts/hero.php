@@ -50,7 +50,8 @@ if( $link ):
     <?php } ?>
     <?php elseif ($heroType == 'video') : ?>
     <section class="container full-image <?php the_field('hero_height'); ?>">
-        <video playsinline autoplay muted loop poster="<?php echo esc_url($heroImage['url']); ?>" id="bgvideo" width="x" height="y">
+        <video playsinline autoplay muted loop poster="<?php echo esc_url($heroImage['url']); ?>" id="bgvideo" width="x"
+            height="y">
             <source src="<?php echo $heroVideo['url']; ?>" type="video/mp4">
         </video>
         <div class="hero-textblock">
@@ -242,17 +243,4 @@ if( $link ):
 
 
     <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>

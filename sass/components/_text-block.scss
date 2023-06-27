@@ -77,3 +77,41 @@
     }
   }
 }
+.section-text-image-block {
+  padding-bottom: 15rem;
+  .image-block {
+    grid-column: center-start / center-end;
+    height: 100vh;
+    position: sticky;
+    top: 6rem;
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    @media only screen and (min-width: $bp-medium) {
+      grid-column: col-start 7 / full-end;
+    }
+  }
+
+  .text-block {
+    grid-column: center-start / center-end;
+    padding: 0 0 5rem 0;
+    h2 {
+      padding-bottom: 3rem;
+    }
+    @media only screen and (min-width: $bp-medium) {
+      grid-column: col-start 2 / col-end 6;
+      padding: 0 20% 5rem 0;
+    }
+  }
+}
+.breadcrumb {
+  text-transform: uppercase;
+  padding: 5rem 0 10rem;
+
+  .current {
+    color: $color-primary;
+  }
+}

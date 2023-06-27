@@ -82,6 +82,14 @@
 <?php get_template_part('template-parts/awards'); ?>
 <?php elseif (get_row_layout() == 'map') : ?>
 <?php get_template_part('template-parts/map'); ?>
+<?php elseif (get_row_layout() == 'textimage') : ?>
+<?php get_template_part('template-parts/textimage'); ?>
+<?php elseif (get_row_layout() == 'bread') : ?>
+<?php get_template_part('template-parts/bread'); ?>
+<?php elseif (get_row_layout() == 'slidergallery') : ?>
+<?php get_template_part('template-parts/slidergallery'); ?>
+<?php elseif (get_row_layout() == 'contactdetails') : ?>
+<?php get_template_part('template-parts/contactdetails'); ?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

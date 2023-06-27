@@ -71,3 +71,39 @@
     }
   }
 }
+.slider-gallery {
+  display: grid;
+  .slick-arrow {
+    position: absolute;
+    top: 0;
+    width: 5rem;
+    height: 5rem;
+    background: transparent;
+    border-radius: 0;
+    border: 1px solid $color-black;
+    z-index: 1;
+    i {
+      font-size: 3rem;
+      padding: 0.5rem 1rem;
+    }
+    &.slick-prev {
+      left: 45%;
+      translate: -50%;
+    }
+    &.slick-next {
+      left: 55%;
+      translate: -50%;
+    }
+  }
+  img {
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  .slick-track {
+    grid-gap: 2rem;
+  }
+  .slick-list {
+    margin: 10rem -1rem 15rem;
+  }
+}
