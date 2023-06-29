@@ -488,16 +488,47 @@ $('.tabs a').click(function(e) {
 //   // Rest of the code...
 // });
 
-const readMoreLink = document.querySelector('.read-more-link');
-const paragraphs = document.querySelectorAll('.read-more p');
+const readMoreContainer = document.querySelector('.read-more');
 
-if (paragraphs.length <= 1) {
-  readMoreLink.style.display = 'none';
+if (readMoreContainer) {
+  const readMoreLink = readMoreContainer.querySelector('.read-more-link');
+  const paragraphs = readMoreContainer.querySelectorAll('p:not(:first-child)');
+
+  if (paragraphs.length <= 1) {
+    readMoreLink.style.display = 'none';
+  }
+
+  readMoreLink.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    readMoreContainer.classList.toggle('expanded');
+    readMoreLink.textContent = (readMoreLink.textContent === 'Read More') ? 'Read Less' : 'Read More';
+  });
 }
 
-readMoreLink.addEventListener('click', function(e) {
-  e.preventDefault();
-  
-  document.querySelector('.read-more').classList.toggle('expanded');
-  readMoreLink.textContent = (readMoreLink.textContent === 'Read More') ? 'Read Less' : 'Read More';
-});
+
+ // Get all the activity-trigger elements
+    var activityTriggers = document.querySelectorAll('.activity-trigger');
+
+    // Add a click event listener to each activity-trigger
+    activityTriggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+            // Get the parent element (activity-item)
+            var activityItem = this.closest('.activity-item');
+
+            // Check if the clicked item is already active
+            if (activityItem.classList.contains('active')) {
+                // Close the active item by removing the 'active' class
+                activityItem.classList.remove('active');
+            } else {
+                // Remove the 'active' class from all activity-items
+                var activityItems = document.querySelectorAll('.activity-item');
+                activityItems.forEach(function(item) {
+                    item.classList.remove('active');
+                });
+
+                // Add the 'active' class to the clicked activity-item
+                activityItem.classList.add('active');
+            }
+        });
+    });

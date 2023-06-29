@@ -92,6 +92,8 @@
 <?php get_template_part('template-parts/contactdetails'); ?>
 <?php elseif (get_row_layout() == 'formtabs') : ?>
 <?php get_template_part('template-parts/formtabs'); ?>
+<?php elseif (get_row_layout() == 'mediagallery') : ?>
+<?php get_template_part('template-parts/mediagallery'); ?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

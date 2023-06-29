@@ -23,12 +23,7 @@ $pagebg = get_field('background_image');
 <?php get_template_part('template-parts/campgallery'); ?>
 
 
-<section class="et-slide container camp-content--activities" id="tab-activities">
-    <div class="row">
-        <h1>Activities</h1>
-        <h3>something about Activities</h3>
-    </div>
-</section>
+<?php get_template_part('template-parts/activity'); ?>
 <section class="et-slide container camp-content--booking" id="tab-booking">
     <div class="row">
         <h1>Booking</h1>
