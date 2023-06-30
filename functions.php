@@ -364,3 +364,14 @@ function the_breadcrumb()
         echo '</div>';
     }
 } // end the_breadcrumb()
+
+
+// add google maps API key for ACF
+
+function my_acf_init()
+{
+
+	acf_update_setting('google_api_key', 'AIzaSyDMoZWtHGaeWcZ4Tbh1NvPDP-H1IniquP0');
+}
+
+add_action('acf/init', 'my_acf_init');

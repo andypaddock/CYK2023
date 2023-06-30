@@ -1,4 +1,4 @@
-<section class="et-slide container camp-content--activity" id="tab-accom">
+<section class="et-slide container camp-content--activity" id="tab-activities">
     <div class="row">
 
 

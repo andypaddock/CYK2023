@@ -37,39 +37,43 @@ if( $link ):
     <a class="" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 <?php endif; ?>
         </div> -->
-
         <script>
         mapboxgl.accessToken =
             'pk.eyJ1Ijoic2lsdmVybGVzcyIsImEiOiJjaXNibDlmM2gwMDB2Mm9tazV5YWRmZTVoIn0.ilTX0t72N3P3XbzGFhUKcg';
 
-        var points = [{
-                name: 'Point 1',
-                coordinates: [37.8891, -2.77589],
-                info: 'Basic information about Point 1.',
+        var points = [
+
+
+            <?php
+$args = array(
+    'post_type' => 'camp',
+    'posts_per_page' => 3
+);
+$the_query = new WP_Query( $args ); ?>
+            <?php if ( $the_query->have_posts() ) : ?>
+            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); $location = get_field('location'); $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); ?> {
+                name: '<?php the_title(); ?>',
+                coordinates: [<?php echo esc_attr($location['lng']); ?>, <?php echo esc_attr($location['lat']); ?>],
+                info: '<?php the_field('tag_line'); ?>',
                 pitch: 60,
                 bearing: 28,
-                image: '/wp-content/uploads/2023/05/placeholder-1024x683-1.png',
-                link: ''
-
+                image: '<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium');?>',
+                link: '<?php the_permalink(); ?>'
             },
-            {
-                name: 'Point 2',
-                coordinates: [37.867392, -2.709631],
-                info: 'Basic information about Point 2.',
-                pitch: 65,
-                bearing: 150,
-                image: '/wp-content/uploads/2023/05/placeholder-1024x683-1.png'
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
 
-            },
-            {
-                name: 'Point 3',
-                coordinates: [37.878674, -2.752509],
-                info: 'Basic information about Point 3.',
-                pitch: 75,
-                bearing: 120,
-                image: '/wp-content/uploads/2023/05/placeholder-1024x683-1.png'
 
-            }
+
+
+
+
+
+
+
+
+
         ];
 
         var map = new mapboxgl.Map({
