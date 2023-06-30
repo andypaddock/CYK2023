@@ -18,7 +18,9 @@
 
             </div>
             <div class="activity-item__button">
-                <i class="fa-thin fa-angle-down activity-trigger" aria-hidden="true"></i>
+                <span>
+                    <i class="fa-thin fa-angle-down activity-trigger" aria-hidden="true"></i>
+                </span>
             </div>
         </div>
         <?php endforeach; ?>

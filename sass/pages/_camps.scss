@@ -325,14 +325,23 @@
       &__button {
         text-align: center;
         padding: 2rem;
+        span {
+          display: block;
+          border: 1px solid $color-black;
+          width: 5rem;
+          height: 5rem;
+          &:hover {
+            border-color: $color-primary;
+          }
+        }
         i {
           font-size: 3rem;
-          border: 1px solid $color-black;
           padding: 1rem;
+          transition: all 0.5s ease-in-out;
           cursor: pointer;
           &:hover {
             color: $color-primary;
-            border-color: $color-primary;
+            // border-color: $color-primary;
           }
         }
       }
@@ -355,6 +364,9 @@
         }
         p {
           -webkit-line-clamp: unset;
+        }
+        i {
+          rotate: 180deg;
         }
       }
     }

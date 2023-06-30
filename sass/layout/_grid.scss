@@ -76,16 +76,16 @@ section {
   }
   .spacer {
     &.small {
-      padding: 1rem;
+      padding: 3rem;
     }
     &.medium {
-      padding: 2.5rem;
-    }
-    &.large {
       padding: 5rem;
     }
+    &.large {
+      padding: 8rem;
+    }
     &.massive {
-      padding: 10rem;
+      padding: 12rem;
     }
   }
 }

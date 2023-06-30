@@ -6,16 +6,20 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
-  .gallery-image {
-    flex: 1 1 20rem;
-    height: 20rem;
+  .gallery-image,
+  .gallery-video,
+  .gallery-web {
+    flex: 1 1 30rem;
+    height: 25rem;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-
       margin-bottom: 1rem;
     }
+  }
+  div {
+    flex: 1 1 20rem;
   }
 }
 .gallery-wrapper__blocks {
