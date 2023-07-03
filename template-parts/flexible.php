@@ -94,6 +94,8 @@
 <?php get_template_part('template-parts/formtabs'); ?>
 <?php elseif (get_row_layout() == 'mediagallery') : ?>
 <?php get_template_part('template-parts/mediagallery'); ?>
+<?php elseif (get_row_layout() == 'sublinks') : ?>
+<?php get_template_part('template-parts/sublinks'); ?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>
