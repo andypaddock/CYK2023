@@ -89,12 +89,13 @@ $('.testimonial-carousel').slick({
 });
 
 $('.hero-slider').slick({
-   centerMode: false,
-  centerPadding: '125px',
-  slidesToShow: 1,
-  arrows:false,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear',
   autoplay: true,
-  autoplaySpeed: 4000,
+  autoplaySpeed: 7000,
+  arrows:false,
 });
 
 $('.awards-wrapper').slick({
@@ -104,7 +105,7 @@ $('.awards-wrapper').slick({
   prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
   nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
   autoplay: true,
-  autoplaySpeed: 7000,
+  autoplaySpeed: 4000,
   responsive: [
     {
       breakpoint: 768,

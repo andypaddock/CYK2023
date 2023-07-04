@@ -268,7 +268,9 @@ a {
   }
 }
 .main-menu {
+  display: none;
   flex: 1;
+
   ul {
     list-style: none;
     display: flex;

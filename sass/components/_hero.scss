@@ -57,13 +57,19 @@
 }
 .hero-wrapper {
   padding-bottom: 0rem;
+  position: relative;
   section.container {
     height: 60vh;
     min-height: 35rem;
     padding-top: 0;
     grid-template-rows: 1fr;
     video {
-      top: 19rem;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     &.full-image {
       @include backgroundCover;
@@ -129,6 +135,7 @@
 .hero-slider {
   grid-column: full-start / full-end;
   height: 40vh;
+  @include positionAbs;
   .slider-image {
     @include backgroundCover;
   }
