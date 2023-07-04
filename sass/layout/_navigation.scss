@@ -270,7 +270,9 @@ a {
 .main-menu {
   display: none;
   flex: 1;
-
+  @media only screen and (min-width: $bp-large) {
+    display: block;
+  }
   ul {
     list-style: none;
     display: flex;
