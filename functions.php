@@ -67,6 +67,21 @@ register_nav_menus(
       'quick' => __('Quick Links')
     )
   );
+  register_nav_menus(
+    array(
+      'conservation' => __('Conservation Menu')
+    )
+  );
+  register_nav_menus(
+    array(
+      'main-links' => __('Main Links')
+    )
+  );
+  register_nav_menus(
+    array(
+      'sub' => __('Sub Pages')
+    )
+  );
 
 
 	/*

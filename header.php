@@ -41,23 +41,35 @@
             </div>
             <div id="main-menu" class="main-menu">
 
-               
-                    <? wp_nav_menu(array(
+
+                <? wp_nav_menu(array(
                             'theme_location' => 'menu-1',
                             'container' => '',
                         )); ?>
 
-               
+
             </div>
             <div class="hamburger-menu">
                 <div class="hamburger"></div>
             </div>
             <?php $menuImage = get_field('menu_image','options'); ?>
             <div class="menu-container" style="background-image: url(<?php echo $menuImage['sizes']['hero-image']; ?>)">
-                <? wp_nav_menu(array(
-                            'theme_location' => 'off-menu',
-                            'container' => '',
+                <div class="nav-wrapper">
+                    <? wp_nav_menu(array(
+                            'theme_location' => 'main-links',
+                            'container' => 'main-pages',
                         )); ?>
+
+                    <? wp_nav_menu(array(
+                            'theme_location' => 'conservation',
+                            'container' => 'conservation-pages',
+                        )); ?>
+
+                    <? wp_nav_menu(array(
+                            'theme_location' => 'sub',
+                            'container' => 'sub-pages',
+                        )); ?>
+                </div>
             </div>
         </nav>
     </header>

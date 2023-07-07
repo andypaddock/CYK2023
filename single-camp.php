@@ -16,15 +16,18 @@ $standardText = get_field('page_element_headings', 'options');
 $anchorTop = get_field('hero_image_bleed');
 $pagebg = get_field('background_image');
 ?>
+<?php if(get_field('display_over_tab')):?>
 <?php get_template_part('template-parts/overview'); ?>
-
+<?php endif;?>
+<?php if(get_field('display_accom_tab')):?>
 <?php get_template_part('template-parts/accom'); ?>
-
+<?php endif;?>
+<?php if(get_field('display_gallery_tab')):?>
 <?php get_template_part('template-parts/campgallery'); ?>
-
-
+<?php endif;?>
+<?php if(get_field('display_activities_tab')):?>
 <?php get_template_part('template-parts/activity'); ?>
-
+<?php endif;?>
 
 
 

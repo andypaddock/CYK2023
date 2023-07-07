@@ -1,6 +1,7 @@
 <?php $pagebg = get_field('background_image'); ?>
 <section class="et-slide container section-text-block camp-content--overview"
-    style="background-image: url(<?php echo $pagebg['sizes']['hero-image']; ?>)" id="tab-overview">
+    style="background-image: url(<?php if ($pagebg) {echo $pagebg['sizes']['hero-image'];}  ?>)"
+    id="tab-<?php echo str_replace(' ', '', get_field('tab_title_over')); ?>">
     <div class="row col-6">
         <div class="text">
             <div class="text-block <?php the_field('text_align'); ?>">

@@ -10,10 +10,23 @@ $heroVideo = get_field('hero_video');?>
       <div class="row">
           <h1 class="heading-1 heading-1--light"><?php the_title(); ?></h1>
           <div class="et-hero-tabs-container">
-              <a class="et-hero-tab" href="#tab-overview">Camp Overview</a>
-              <a class="et-hero-tab" href="#tab-accom">Accommodation</a>
-              <a class="et-hero-tab" href="#tab-gallery">Gallery</a>
-              <a class="et-hero-tab" href="#tab-activities">Activities</a>
+              <?php if(get_field('display_over_tab')):?>
+              <a class="et-hero-tab"
+                  href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_over')); ?>"><?php the_field('tab_title_over');?></a>
+              <?php endif;?>
+              <?php if(get_field('display_accom_tab')):?>
+              <a class="et-hero-tab"
+                  href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_accom')); ?>"><?php the_field('tab_title_accom');?></a>
+              <?php endif;?>
+              <?php if(get_field('display_gallery_tab')):?>
+              <a class="et-hero-tab"
+                  href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_gall')); ?>"><?php the_field('tab_title_gall');?></a>
+              <?php endif;?>
+              <?php if(get_field('display_activities_tab')):?>
+              <a class="et-hero-tab"
+                  href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_act')); ?>"><?php the_field('tab_title_act');?></a>
+              <?php endif;?>
+
           </div>
       </div>
   </section>

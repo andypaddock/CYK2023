@@ -28,7 +28,8 @@
   }
 }
 
-.heading-3 {
+.heading-3,
+h3 {
   @extend %heading;
   font-size: 2rem;
   &--light {
@@ -37,6 +38,9 @@
   &--dark {
     color: $color-grey-dark-1;
   }
+}
+h3 {
+  padding-bottom: 1rem;
 }
 
 .heading-4 {
@@ -66,6 +70,11 @@ p {
     }
   }
 }
+.text-block {
+  a {
+    color: $color-primary;
+  }
+}
 
 .align-cent {
   text-align: center;
@@ -93,4 +102,8 @@ p {
 .read-more.expanded p {
   max-height: 1000px;
   margin-bottom: 2rem;
+}
+blockquote {
+  padding-left: 2rem;
+  font-style: italic;
 }

@@ -1,4 +1,5 @@
-<section class="et-slide container camp-content--activity" id="tab-activities">
+<section class="et-slide container camp-content--activity"
+    id="tab-<?php echo str_replace(' ', '', get_field('tab_title_act')); ?>">
     <div class="row">
 
 

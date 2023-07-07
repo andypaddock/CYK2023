@@ -1,4 +1,5 @@
-<section class="et-slide container camp-content--accom" id="tab-accom">
+<section class="et-slide container camp-content--accom"
+    id="tab-<?php echo str_replace(' ', '', get_field('tab_title_accom')); ?>">
     <div class="row col-10">
         <div class="accom-slider">
             <?php if( have_rows('room_details') ): ?>
@@ -52,7 +53,9 @@ if( $link ):
     $link_title = $link['title'];
     $link_target = $link['target'] ? $link['target'] : '_self';
     ?>
-    <a class="cta-bar" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><h2 class="heading-2 heading-2--light"><?php echo esc_html( $link_title ); ?></h2></a>
-<?php endif; ?>
+        <a class="cta-bar" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+            <h2 class="heading-2 heading-2--light"><?php echo esc_html( $link_title ); ?></h2>
+        </a>
+        <?php endif; ?>
     </div>
 </section>

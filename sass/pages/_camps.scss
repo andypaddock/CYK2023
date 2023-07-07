@@ -39,7 +39,6 @@
 
 .et-hero-tabs,
 .et-slide {
-  min-height: 75vh;
   position: relative;
   text-align: center;
 
@@ -49,6 +48,9 @@
     left: 0;
     object-fit: cover;
   }
+}
+.et-hero-tabs {
+  min-height: 75vh;
 }
 
 .et-hero-tabs-container {
