@@ -29,7 +29,7 @@ if( $link ):
         <?php } ?>
         <div class="center-wrapper">
             <div class="center bounce">
-                <i class="fa-sharp fa-solid fa-chevron-down"></i>
+                <i class="fa-sharp fa-light fa-chevron-down"></i>
             </div>
         </div>
 
@@ -237,6 +237,11 @@ if( $link ):
             <a class="button outline light tileup" href="<?php echo esc_url( $link_url ); ?>"
                 target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
             <?php endif; ?>
+        </div>
+        <div class="center-wrapper">
+            <div class="center bounce">
+                <i class="fa-sharp fa-light fa-chevron-down"></i>
+            </div>
         </div>
 
     </section>

@@ -239,7 +239,7 @@
         }
         .text-block {
           text-align: initial;
-          padding: 5rem 2rem 5rem 0rem;
+          padding: 6rem 2rem 5rem 0rem;
           h2 {
             padding-bottom: 2rem;
           }
@@ -250,9 +250,14 @@
         position: absolute;
         font-size: 2rem;
         padding: 1rem 1.25rem;
+        z-index: 3;
+        background: $color-bg-light;
+        border: 1px solid $color-black;
+        width: 5rem;
+        height: 5rem;
       }
       .slick-next {
-        left: 5rem;
+        left: 7rem;
       }
       .slick-track {
         align-items: flex-start;
@@ -390,7 +395,8 @@
         text-align: center;
         padding: 2rem;
         span {
-          display: block;
+          display: grid;
+          place-content: center;
           border: 1px solid $color-black;
           width: 5rem;
           height: 5rem;
@@ -400,12 +406,14 @@
         }
         i {
           font-size: 3rem;
-          padding: 1rem;
           transition: all 0.5s ease-in-out;
           cursor: pointer;
           &:hover {
             color: $color-primary;
             // border-color: $color-primary;
+          }
+          &:before {
+            transform-origin: center;
           }
         }
       }

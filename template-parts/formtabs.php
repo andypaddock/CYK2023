@@ -3,8 +3,14 @@
     <div class="row <?php the_sub_field('column_size'); ?>">
         <div class="contact-tabs">
             <div class="tabbed-section">
+                <?php
+$rows = count(get_sub_field('form_tab'));
+if ($rows > 1) :
+?>
                 <div class="tabbed-section__head">
+
                     <?php if (have_rows('form_tab')) :?>
+
                     <ul class="tabs" data-tabgroup="first-tab-group">
                         <?php while (have_rows('form_tab')) : the_row(); $tabOrder = get_row_index(); ?>
                         <li><a href="#tab<?php echo get_row_index(); ?>"
@@ -14,6 +20,7 @@
                     </ul>
                     <?php endif; ?>
                 </div>
+                <?php endif; ?>
                 <div class="tabbed-section__body">
                     <?php if (have_rows('form_tab')) :?>
                     <div id="first-tab-group" class="tabgroup">

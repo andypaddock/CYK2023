@@ -79,7 +79,8 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        padding-bottom: 10vh;
+        padding-bottom: 15vh;
+        text-align: center;
       }
     }
     &.hero-full {
@@ -87,7 +88,11 @@
       display: grid;
 
       .center {
-        display: block;
+        display: grid;
+        place-content: center;
+        border: 1px solid $color-white;
+        width: 5rem;
+        height: 5rem;
       }
       .hero-slider,
       .slider-image,
@@ -146,11 +151,14 @@
   bottom: 4rem;
   transform: translateX(-50%);
   .center {
-    display: none;
-
+    display: grid;
+    place-content: center;
+    border: 1px solid $color-white;
+    width: 5rem;
+    height: 5rem;
     i {
       color: $color-white;
-      font-size: 4rem;
+      font-size: 3rem;
     }
     &.bounce {
       -moz-animation: bounce 2s infinite;

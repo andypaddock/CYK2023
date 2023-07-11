@@ -19,7 +19,7 @@
                 </div>
                 <div class="timeline-event__details">
                     <div class="label">
-                        <h3 class="heading-2 heading-2--green"><?php the_sub_field('title'); ?></h3>
+                        <h3 class="heading-4"><?php the_sub_field('title'); ?></h3>
                     </div>
                     <div class="content">
 
