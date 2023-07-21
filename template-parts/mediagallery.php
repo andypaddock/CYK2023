@@ -34,7 +34,7 @@ if ($images) : ?>
         $file = get_sub_field('video_file');
         ?><a class="mix gallery-video" data-fslightbox="gallery" href="<?php echo $file['url']; ?>"
                     class="lightbox-gallery" alt="<?php echo $image_alt; ?>">
-                    <div>
+                    <div class="video-image">
 
                         <?php echo wp_get_attachment_image($image, 'large'); ?>
                     </div>
@@ -49,7 +49,7 @@ if ($images) : ?>
         ?><a class="mix gallery-web" data-fslightbox="gallery-web" data-type="image"
                     href="<?php the_sub_field('image_url'); ?>" class="lightbox-gallery" alt="<?php echo $image_alt; ?>"
                     data-caption="<h2 class='heading-2'><?php the_sub_field('title'); ?></h2><p><?php the_sub_field('description'); ?></p>">
-                    <div class="" style="background-image: url('<?php the_sub_field('image_url'); ?>')">
+                    <div class="webcam-image" style="background-image: url('<?php the_sub_field('image_url'); ?>')">
 
                     </div>
                 </a>

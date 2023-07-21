@@ -4,14 +4,10 @@
 //@prepros-prepend mixitup.min.js
 //@prepros-prepend read-more.js
 
-jQuery(document).ready(function($) {
-
-
-  
- 
+jQuery(document).ready(function ($) {
   /* ADD CLASS ON SCROLL*/
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     var scroll = $(window).scrollTop();
 
     if (scroll >= 100) {
@@ -23,124 +19,121 @@ jQuery(document).ready(function($) {
 
   // ========== Controller for lightbox elements
 
+  // ========== NAVBAR SCROLL AWAY
 
+  $(document).ready(function () {
+    "use strict";
 
- // ========== NAVBAR SCROLL AWAY
+    var c,
+      currentScrollTop = 0,
+      navbar = $("#header"),
+      campTabs = $("#camp-tabs");
 
+    $(window).scroll(function () {
+      var a = $(window).scrollTop();
+      var b = navbar.height();
 
- $(document).ready(function () {
-  "use strict";
+      currentScrollTop = a;
 
-  var c,
-    currentScrollTop = 0,
-    navbar = $("#header"),
-    campTabs = $("#camp-tabs");
-
-  $(window).scroll(function () {
-    var a = $(window).scrollTop();
-    var b = navbar.height();
-
-    currentScrollTop = a;
-
-    if (c < currentScrollTop && a > b + b) {
-      navbar.addClass("scrollUp");
-      campTabs.addClass("scrollUp");
-    } else if (c > currentScrollTop && !(a <= b)) {
-      navbar.removeClass("scrollUp");
-      campTabs.removeClass("scrollUp");
-    }
-    c = currentScrollTop;
+      if (c < currentScrollTop && a > b + b) {
+        navbar.addClass("scrollUp");
+        campTabs.addClass("scrollUp");
+      } else if (c > currentScrollTop && !(a <= b)) {
+        navbar.removeClass("scrollUp");
+        campTabs.removeClass("scrollUp");
+      }
+      c = currentScrollTop;
+    });
   });
-});
-
-
-
-
-
 
   //=========== Slick Slider
 
-$('.testimonial-carousel').slick({
-  centerMode: false,
-  centerPadding: '125px',
-  slidesToShow: 1,
-  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
-            nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
-  // responsive: [
-  //   {
-  //     breakpoint: 768,
-  //     settings: {
-  //       arrows: false,
-  //       centerMode: true,
-  //       centerPadding: '40px',
-  //       slidesToShow: 1
-  //     }
-  //   },
-  //   {
-  //     breakpoint: 480,
-  //     settings: {
-  //       arrows: false,
-  //       centerMode: true,
-  //       centerPadding: '40px',
-  //       slidesToShow: 1
-  //     }
-  //   }
-  // ]
-});
+  $(".testimonial-carousel").slick({
+    centerMode: false,
+    centerPadding: "125px",
+    slidesToShow: 1,
+    prevArrow:
+      "<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
+    // responsive: [
+    //   {
+    //     breakpoint: 768,
+    //     settings: {
+    //       arrows: false,
+    //       centerMode: true,
+    //       centerPadding: '40px',
+    //       slidesToShow: 1
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 480,
+    //     settings: {
+    //       arrows: false,
+    //       centerMode: true,
+    //       centerPadding: '40px',
+    //       slidesToShow: 1
+    //     }
+    //   }
+    // ]
+  });
 
-$('.hero-slider').slick({
-  infinite: true,
-  speed: 500,
-  fade: true,
-  cssEase: 'linear',
-  autoplay: true,
-  autoplaySpeed: 7000,
-  arrows:false,
-});
+  $(".hero-slider").slick({
+    infinite: true,
+    speed: 500,
+    fade: true,
+    cssEase: "linear",
+    autoplay: true,
+    autoplaySpeed: 7000,
+    arrows: false,
+  });
 
-$('.awards-wrapper').slick({
-  centerMode: false,
-  centerPadding: '125px',
-  slidesToShow: 3,
-  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
-  nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
-  autoplay: true,
-  autoplaySpeed: 4000,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        arrows: false,
-        slidesToShow: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        arrows: false,
-        slidesToShow: 1
-      }
-    }
-  ]
-});
+  $(".awards-wrapper").slick({
+    centerMode: false,
+    centerPadding: "125px",
+    slidesToShow: 3,
+    prevArrow:
+      "<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
+    autoplay: true,
+    autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
 
+  $(".accom-slider").slick({
+    adaptiveHeight: true,
+    prevArrow:
+      "<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
+  });
 
-$('.accom-slider').slick({
-  adaptiveHeight: true,
-  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
-  nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
-});
+  $(".slider-gallery").slick({
+    infinite: true,
+    slidesToShow: 3,
+    prevArrow:
+      "<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
+  });
 
-$('.slider-gallery').slick({
-  infinite: true,
-  slidesToShow: 3,
-  prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa-thin fa-angle-left' aria-hidden='true'></i></button>",
-  nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa-thin fa-angle-right' aria-hidden='true'></i></button>",
-});
-
-
-
-$(document).ready(function () {
+  $(document).ready(function () {
     $(".block__title").click(function (event) {
       if ($(".block").hasClass("one")) {
         $(".block__title").not($(this)).removeClass("active");
@@ -150,15 +143,9 @@ $(document).ready(function () {
     });
   });
 
-
   //=========== Scroll Reveal
 
-
-
-
-
-
-var slideLeft = {
+  var slideLeft = {
     distance: "40px",
     origin: "left",
     opacity: 0.0,
@@ -204,90 +191,81 @@ var slideLeft = {
   ScrollReveal().reveal(".row-default", slideRight);
   ScrollReveal().reveal(".row-reverse", slideLeft);
 
+  // Show the first tab and hide the rest
+  $("#tabs-nav li:first-child").addClass("active");
+  $(".tab-content").hide();
+  $(".tab-content:first").show();
 
+  // Click function
+  $("#tabs-nav li").click(function () {
+    $("#tabs-nav li").removeClass("active");
+    $(this).addClass("active");
+    $(".tab-content").hide();
 
-// Show the first tab and hide the rest
-$('#tabs-nav li:first-child').addClass('active');
-$('.tab-content').hide();
-$('.tab-content:first').show();
+    var activeTab = $(this).find("a").attr("href");
+    $(activeTab).fadeIn();
+    return false;
+  });
 
-// Click function
-$('#tabs-nav li').click(function(){
-  $('#tabs-nav li').removeClass('active');
-  $(this).addClass('active');
-  $('.tab-content').hide();
-  
-  var activeTab = $(this).find('a').attr('href');
-  $(activeTab).fadeIn();
-  return false;
-});
+  // NAV BAR
 
+  $(".burger").click(function () {
+    $(".mobile-header").toggleClass("is--active");
+    $(".mobile-nav").toggleClass("is--active");
+  });
 
-// NAV BAR
+  //==============BLOG READ MORE AJAX CALL
 
-$('.burger').click(function(){
-  $('.mobile-header').toggleClass('is--active');
-  $('.mobile-nav').toggleClass('is--active');
-});
+  var ppp = 6; // Post per page
+  var pageNumber = 1;
 
-
-
-
-
-//==============BLOG READ MORE AJAX CALL
-
-
-var ppp = 6; // Post per page
-var pageNumber = 1;
-
-
-function load_posts(){
+  function load_posts() {
     pageNumber++;
-    var str = '&pageNumber=' + pageNumber + '&ppp=' + ppp + '&action=more_post_ajax';
+    var str =
+      "&pageNumber=" + pageNumber + "&ppp=" + ppp + "&action=more_post_ajax";
     $.ajax({
-        type: "POST",
-        dataType: "html",
-        url: ajax_posts.ajaxurl,
-        data: str,
-        success: function(data){
-            var $data = $(data);
-            if($data.length){
-                $("#ajax-posts").append($data);
-                //$("#more_posts").attr("disabled",false); // Uncomment this if you want to disable the button once all posts are loaded
-                $("#more_posts").hide(); // This will hide the button once all posts have been loaded
-            } else{
-                $("#more_posts").attr("disabled",true);
-            }
-        },
-        error : function(jqXHR, textStatus, errorThrown) {
-            $loader.html(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+      type: "POST",
+      dataType: "html",
+      url: ajax_posts.ajaxurl,
+      data: str,
+      success: function (data) {
+        var $data = $(data);
+        if ($data.length) {
+          $("#ajax-posts").append($data);
+          //$("#more_posts").attr("disabled",false); // Uncomment this if you want to disable the button once all posts are loaded
+          $("#more_posts").hide(); // This will hide the button once all posts have been loaded
+        } else {
+          $("#more_posts").attr("disabled", true);
         }
-
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        $loader.html(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+      },
     });
     return false;
-}
+  }
 
-$("#more_posts").on("click",function(){ // When btn is pressed.
-    $("#more_posts").attr("disabled",true); // Disable the button, temp.
+  $("#more_posts").on("click", function () {
+    // When btn is pressed.
+    $("#more_posts").attr("disabled", true); // Disable the button, temp.
     load_posts();
-    $(this).insertAfter('#ajax-posts'); // Move the 'Load More' button to the end of the the newly added posts.
-});
-
-
-$('.hamburger-menu, .link').click(function () {
-	$('body').hasClass('menu-open') ? ($('body').removeClass('menu-open')) : ($('body').addClass('menu-open'));
-});
-
-
-
-  $(document).ready(function() {
-  $('.footer-accordian--heading').click(function() {
-    $(this).siblings('.footer-accordian--content').slideToggle();
-    $(this).toggleClass('active');
+    $(this).insertAfter("#ajax-posts"); // Move the 'Load More' button to the end of the the newly added posts.
   });
-});
 
-$(".toggle-block label").click(function () {
+  $(".hamburger-menu, .link").click(function () {
+    $("body").hasClass("menu-open")
+      ? $("body").removeClass("menu-open")
+      : $("body").addClass("menu-open");
+  });
+
+  $(document).ready(function () {
+    $(".footer-accordian--heading").click(function () {
+      $(this).siblings(".footer-accordian--content").slideToggle();
+      $(this).toggleClass("active");
+    });
+  });
+
+  $(".toggle-block label").click(function () {
     var otherLabels = $(this).parent().siblings(".item").find("label");
     otherLabels.removeClass("collapsed");
     otherLabels.next().slideUp();
@@ -295,95 +273,104 @@ $(".toggle-block label").click(function () {
     $(this).next().slideToggle();
   });
 
-
   $(".timeline-event__details .label").click(function () {
-    var otherLabels = $(this).parent().siblings(".timeline-event__details").find("label");
+    var otherLabels = $(this)
+      .parent()
+      .siblings(".timeline-event__details")
+      .find("label");
     otherLabels.removeClass("collapsed");
     otherLabels.next().slideUp();
     $(this).toggleClass("collapsed");
     $(this).next().slideToggle();
   });
 
+  class StickyNavigation {
+    constructor() {
+      this.currentId = null;
+      this.currentTab = null;
+      this.tabContainerHeight = 70;
+      if ($(".et-hero-tab").length > 0) {
+        // Check if .et-hero-tab element exists
+        this.bindEvents();
+      }
+    }
 
+    bindEvents() {
+      $(".et-hero-tab").on("click", (event) => this.onTabClick(event));
+      $(window).on("scroll", () => this.onScroll());
+      $(window).on("resize", () => this.onResize());
+    }
 
-class StickyNavigation {
-	constructor() {
-		this.currentId = null;
-		this.currentTab = null;
-		this.tabContainerHeight = 70;
-		this.bindEvents();
-	}
+    onTabClick(event) {
+      event.preventDefault();
+      const $clickedTab = $(event.currentTarget);
+      const target = $clickedTab.attr("href");
+      const scrollTop = $(target).offset().top - this.tabContainerHeight + 1;
+      $("html, body").animate({ scrollTop }, 600);
+      this.activateTab($clickedTab);
+    }
 
-	bindEvents() {
-		$('.et-hero-tab').on('click', (event) => this.onTabClick(event));
-		$(window).on('scroll', () => this.onScroll());
-		$(window).on('resize', () => this.onResize());
-	}
+    activateTab($tab) {
+      $(".et-hero-tab").removeClass("active");
+      $tab.addClass("active");
+    }
 
-	onTabClick(event) {
-		event.preventDefault();
-		const $clickedTab = $(event.currentTarget);
-		const target = $clickedTab.attr('href');
-		const scrollTop = $(target).offset().top - this.tabContainerHeight + 1;
-		$('html, body').animate({ scrollTop }, 600);
-		this.activateTab($clickedTab);
-	}
+    onScroll() {
+      this.checkTabContainerPosition();
+      this.findCurrentTabSelector();
+    }
 
-	activateTab($tab) {
-		$('.et-hero-tab').removeClass('active');
-		$tab.addClass('active');
-	}
+    onResize() {
+      if (this.currentId) {
+        this.setSliderCss();
+      }
+    }
 
-	onScroll() {
-		this.checkTabContainerPosition();
-		this.findCurrentTabSelector();
-	}
+    checkTabContainerPosition() {
+      const offset =
+        $(".et-hero-tabs").offset().top +
+        $(".et-hero-tabs").height() -
+        this.tabContainerHeight;
+      const $tabsContainer = $(".et-hero-tabs-container");
+      $tabsContainer.toggleClass(
+        "et-hero-tabs-container--top",
+        $(window).scrollTop() > offset
+      );
+    }
 
-	onResize() {
-		if (this.currentId) {
-			this.setSliderCss();
-		}
-	}
+    findCurrentTabSelector() {
+      const self = this;
+      const $tabs = $(".et-hero-tab");
+      $tabs.each(function () {
+        const $tab = $(this);
+        const id = $tab.attr("href");
+        const offsetTop = $(id).offset().top - self.tabContainerHeight;
+        const offsetBottom = offsetTop + $(id).height();
+        if (
+          $(window).scrollTop() > offsetTop &&
+          $(window).scrollTop() < offsetBottom
+        ) {
+          if (self.currentId !== id || self.currentId === null) {
+            self.currentId = id;
+            self.currentTab = $tab;
+            self.setSliderCss();
+            self.activateTab($tab);
+          }
+          return false; // Exit the loop early if a match is found
+        }
+      });
+    }
 
-	checkTabContainerPosition() {
-		const offset = $('.et-hero-tabs').offset().top + $('.et-hero-tabs').height() - this.tabContainerHeight;
-		const $tabsContainer = $('.et-hero-tabs-container');
-		$tabsContainer.toggleClass('et-hero-tabs-container--top', $(window).scrollTop() > offset);
-	}
+    setSliderCss() {
+      const $slider = $(".et-hero-tab-slider");
+      const width = this.currentTab ? this.currentTab.css("width") : 0;
+      $slider.css("width", width);
+    }
+  }
 
-	findCurrentTabSelector() {
-		const self = this;
-		const $tabs = $('.et-hero-tab');
-		$tabs.each(function () {
-			const $tab = $(this);
-			const id = $tab.attr('href');
-			const offsetTop = $(id).offset().top - self.tabContainerHeight;
-			const offsetBottom = offsetTop + $(id).height();
-			if ($(window).scrollTop() > offsetTop && $(window).scrollTop() < offsetBottom) {
-				if (self.currentId !== id || self.currentId === null) {
-					self.currentId = id;
-					self.currentTab = $tab;
-					self.setSliderCss();
-					self.activateTab($tab);
-				}
-				return false; // Exit the loop early if a match is found
-			}
-		});
-	}
+  new StickyNavigation();
 
-	setSliderCss() {
-		const $slider = $('.et-hero-tab-slider');
-		const width = this.currentTab ? this.currentTab.css('width') : 0;
-		$slider.css('width', width);
-	}
-}
-
-new StickyNavigation();
-
-
-
-
-var containerEl = document.querySelector(".gallery-wrapper");
+  var containerEl = document.querySelector(".gallery-wrapper");
   var mixer;
 
   if (containerEl) {
@@ -394,142 +381,74 @@ var containerEl = document.querySelector(".gallery-wrapper");
     });
   }
 
+  // Hide all tab content except the first one
+  $(".tabgroup > div").hide();
+  $(".tabgroup > div:first-of-type").show();
 
-// Hide all tab content except the first one
-$('.tabgroup > div').hide();
-$('.tabgroup > div:first-of-type').show();
+  // Handle tab click event
+  $(".tabs a").click(function (e) {
+    e.preventDefault();
 
+    // Get the necessary elements
+    var $this = $(this),
+      tabgroup = "#" + $this.parents(".tabs").data("tabgroup"),
+      target = $this.attr("href");
 
-// Handle tab click event
-$('.tabs a').click(function(e) {
-  e.preventDefault();
+    // Update active classes
+    $(".tabs a").removeClass("active");
+    $this.addClass("active");
 
-  // Get the necessary elements
-  var $this = $(this),
-    tabgroup = '#' + $this.parents('.tabs').data('tabgroup'),
-    target = $this.attr('href');
-
-  // Update active classes
-  $('.tabs a').removeClass('active');
-  $this.addClass('active');
-
-  // Hide all tab content and show the selected one
-  $(tabgroup).children('div').hide();
-  $(target).show();
-});
-
-    
-
-
+    // Hide all tab content and show the selected one
+    $(tabgroup).children("div").hide();
+    $(target).show();
+  });
 }); //Don't remove ---- end of jQuery wrapper
-
 
 // ==============================
 // Nav
 // ========================================
 
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     var videoContainer = document.getElementById("video-container");
-//     var video = document.getElementById("video");
-//     var content = document.getElementById("camp-content");
-//     var fadeDelayInSeconds = parseInt(videoContainer.dataset.fadeDelay, 10) || 5; // Set the delay in seconds before the fade effect starts, defaults to 5 seconds
-
-//     video.play(); // Start playing the video
-
-//     setTimeout(function () {
-//         fadeOut(video, 1000);
-//     }, fadeDelayInSeconds * 1000); // Convert seconds to milliseconds
-
-//     // Function to fade out the video
-//     function fadeOut(videoElement, duration) {
-//         var interval = 50;
-//         var step = interval / duration;
-//         var fadeInterval = setInterval(function () {
-//             videoElement.style.opacity -= step;
-//             if (videoElement.style.opacity <= 0) {
-//                 clearInterval(fadeInterval);
-//                 videoElement.style.display = "none";
-//                 content.style.opacity = 1; // Make the content fully visible
-//             }
-//         }, interval);
-//     }
-
-//   // Function to fade out an element
-//   function fadeOut(element, duration, callback) {
-//     element.style.opacity = 1;
-
-//     var interval = 50;
-//     var step = interval / duration;
-//     var fadeOutInterval = setInterval(function () {
-//       element.style.opacity -= step;
-//       if (element.style.opacity <= 0) {
-//         clearInterval(fadeOutInterval);
-//         element.style.display = "none";
-//         callback();
-//       }
-//     }, interval);
-//   }
-
-//   // Function to fade in an element
-//   function fadeIn(element, duration) {
-//     element.style.opacity = 0;
-//     element.style.display = "block";
-
-//     var interval = 50;
-//     var step = interval / duration;
-//     var fadeInInterval = setInterval(function () {
-//       element.style.opacity = Number(element.style.opacity) + step;
-//       if (element.style.opacity >= 1) {
-//         clearInterval(fadeInInterval);
-//       }
-//     }, interval);
-//   }
-
-//   // Rest of the code...
-// });
-
-const readMoreContainer = document.querySelector('.read-more');
+const readMoreContainer = document.querySelector(".read-more");
 
 if (readMoreContainer) {
-  const readMoreLink = readMoreContainer.querySelector('.read-more-link');
-  const paragraphs = readMoreContainer.querySelectorAll('p:not(:first-child)');
+  const readMoreLink = readMoreContainer.querySelector(".read-more-link");
+  const paragraphs = readMoreContainer.querySelectorAll("p:not(:first-child)");
 
   if (paragraphs.length <= 1) {
-    readMoreLink.style.display = 'none';
+    readMoreLink.style.display = "none";
   }
 
-  readMoreLink.addEventListener('click', function(e) {
+  readMoreLink.addEventListener("click", function (e) {
     e.preventDefault();
 
-    readMoreContainer.classList.toggle('expanded');
-    readMoreLink.textContent = (readMoreLink.textContent === 'Read More') ? 'Read Less' : 'Read More';
+    readMoreContainer.classList.toggle("expanded");
+    readMoreLink.textContent =
+      readMoreLink.textContent === "Read More" ? "Read Less" : "Read More";
   });
 }
 
+// Get all the activity-trigger elements
+var activityTriggers = document.querySelectorAll(".activity-trigger");
 
- // Get all the activity-trigger elements
-    var activityTriggers = document.querySelectorAll('.activity-trigger');
+// Add a click event listener to each activity-trigger
+activityTriggers.forEach(function (trigger) {
+  trigger.addEventListener("click", function () {
+    // Get the parent element (activity-item)
+    var activityItem = this.closest(".activity-item");
 
-    // Add a click event listener to each activity-trigger
-    activityTriggers.forEach(function(trigger) {
-        trigger.addEventListener('click', function() {
-            // Get the parent element (activity-item)
-            var activityItem = this.closest('.activity-item');
+    // Check if the clicked item is already active
+    if (activityItem.classList.contains("active")) {
+      // Close the active item by removing the 'active' class
+      activityItem.classList.remove("active");
+    } else {
+      // Remove the 'active' class from all activity-items
+      var activityItems = document.querySelectorAll(".activity-item");
+      activityItems.forEach(function (item) {
+        item.classList.remove("active");
+      });
 
-            // Check if the clicked item is already active
-            if (activityItem.classList.contains('active')) {
-                // Close the active item by removing the 'active' class
-                activityItem.classList.remove('active');
-            } else {
-                // Remove the 'active' class from all activity-items
-                var activityItems = document.querySelectorAll('.activity-item');
-                activityItems.forEach(function(item) {
-                    item.classList.remove('active');
-                });
-
-                // Add the 'active' class to the clicked activity-item
-                activityItem.classList.add('active');
-            }
-        });
-    });
+      // Add the 'active' class to the clicked activity-item
+      activityItem.classList.add("active");
+    }
+  });
+});

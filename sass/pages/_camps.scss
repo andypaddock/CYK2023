@@ -257,7 +257,11 @@
         height: 5rem;
       }
       .slick-next {
-        left: 7rem;
+        right: 1rem;
+        @media only screen and (min-width: $bp-large) {
+          left: 7rem;
+          right: unset;
+        }
       }
       .slick-track {
         align-items: flex-start;
@@ -301,17 +305,20 @@
     }
     .gallery-video {
       position: relative;
-      &::after {
-        font: var(--fa-font-light);
-        content: "\f04b";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: -50% -50%;
-        font-size: 3rem;
-        color: $color-primary;
-        opacity: 0.8;
+
+      .video-image {
+        &::before {
+          content: url("./inc/img/play.svg");
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          translate: -50% -50%;
+          font-size: 3rem;
+          color: $color-primary;
+          opacity: 0.8;
+        }
       }
+
       img {
         height: 20rem;
         width: 100%;
@@ -323,8 +330,7 @@
     .gallery-web {
       position: relative;
       &::after {
-        font: var(--fa-font-light);
-        content: "\f832";
+        content: url("./inc/img/live.svg");
         position: absolute;
         top: 50%;
         left: 50%;
@@ -332,6 +338,10 @@
         font-size: 3rem;
         color: $color-primary;
         opacity: 0.8;
+
+        path {
+          fill: $color-primary;
+        }
       }
       div {
         @include backgroundCover;
@@ -372,14 +382,19 @@
     .activity-item {
       margin: 0 0 3rem;
       display: grid;
-      grid-template-columns: 3fr 5fr 1fr;
+      grid-template-columns: 1fr 10rem;
+      grid-template-rows: auto auto;
       background: $color-white;
       text-align: left;
-      max-height: 15rem;
+      max-height: 24rem;
       overflow: hidden;
       transition: all 0.5s ease-in-out;
+      @media only screen and (min-width: $bp-small) {
+        max-height: 26rem;
+      }
       @media only screen and (min-width: $bp-large) {
         grid-template-columns: 3fr 5fr 1fr;
+        grid-template-rows: unset;
         grid-gap: 5rem;
         max-height: 19rem;
       }
@@ -420,8 +435,10 @@
       &__text {
         padding: 1rem;
         transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+        grid-row: 2;
         @media only screen and (min-width: $bp-large) {
           padding: 4rem 8rem 4rem 4rem;
+          grid-row: unset;
         }
         h2 {
           padding: 0 0 1rem;

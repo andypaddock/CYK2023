@@ -6,11 +6,11 @@
             <h3>Point 1</h3>
             <p>Basic information about Point 1.</p>
         </div>
-        <!-- <div id="map-settings">
+        <div id="map-settings">
             <p id="map-pitch"></p>
             <p id="map-zoom"></p>
             <p id="map-bearing"></p>
-        </div> -->
+        </div>
         <div class="point-controls">
             <div class="point-controls--wrapper">
                 <div class="prev" id="prev-button"><i class='fa-thin fa-angle-left' aria-hidden='true'></i></div>
@@ -55,8 +55,9 @@ $the_query = new WP_Query( $args ); ?>
                 name: '<?php the_title(); ?>',
                 coordinates: [<?php echo esc_attr($location['lng']); ?>, <?php echo esc_attr($location['lat']); ?>],
                 info: '<?php the_field('tag_line'); ?>',
-                pitch: 60,
-                bearing: 28,
+                zoom: <?php the_field('zoom'); ?>,
+                pitch: <?php the_field('pitch'); ?>,
+                bearing: <?php the_field('bearing'); ?>,
                 image: '<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium');?>',
                 link: '<?php the_permalink(); ?>'
             },
@@ -80,10 +81,10 @@ $the_query = new WP_Query( $args ); ?>
             container: 'map',
             style: 'mapbox://styles/silverless/clh0piium00lg01qy3g76gcf7', // style URL
             center: [37.8891, -2.77589], // starting position [lng, lat]
-            pitch: 65,
-            bearing: 60,
-            zoom: 12, // starting zoom
-            interactive: false,
+            pitch: <?php the_field('pitch','options'); ?>,
+            bearing: <?php the_field('bearing','options'); ?>,
+            zoom: <?php the_field('zoom','options'); ?>, // starting zoom
+            // interactive: false,
         });
 
         map.on('load', function() {
@@ -93,7 +94,7 @@ $the_query = new WP_Query( $args ); ?>
                 el.className = 'marker';
                 el.addEventListener('click', function() {
                     updateInfoPanel(index);
-                    flyToLocation(point.coordinates, point.pitch, point.bearing);
+                    flyToLocation(point.coordinates, point.pitch, point.bearing, point.zoom);
                 });
                 new mapboxgl.Marker(el)
                     .setLngLat(point.coordinates)
@@ -125,10 +126,10 @@ $the_query = new WP_Query( $args ); ?>
             activeMarker.innerText = index + 1;
         }
 
-        function flyToLocation(coordinates, pitch, bearing) {
+        function flyToLocation(coordinates, pitch, bearing, zoom) {
             map.flyTo({
                 center: coordinates,
-                zoom: 12,
+                zoom: zoom,
                 pitch: pitch,
                 bearing: bearing,
                 duration: 2000, // Adjust the duration (in milliseconds) for smoother animation
@@ -140,15 +141,15 @@ $the_query = new WP_Query( $args ); ?>
             });
         }
 
-        // map.on('move', function() {
-        //     var pitchElement = document.getElementById('map-pitch');
-        //     var zoomElement = document.getElementById('map-zoom');
-        //     var bearingElement = document.getElementById('map-bearing');
+        map.on('move', function() {
+            var pitchElement = document.getElementById('map-pitch');
+            var zoomElement = document.getElementById('map-zoom');
+            var bearingElement = document.getElementById('map-bearing');
 
-        //     pitchElement.innerText = 'Pitch: ' + map.getPitch().toFixed(2);
-        //     zoomElement.innerText = 'Zoom: ' + map.getZoom().toFixed(2);
-        //     bearingElement.innerText = 'Bearing: ' + map.getBearing().toFixed(2);
-        // });
+            pitchElement.innerText = 'Pitch: ' + map.getPitch().toFixed(2);
+            zoomElement.innerText = 'Zoom: ' + map.getZoom().toFixed(2);
+            bearingElement.innerText = 'Bearing: ' + map.getBearing().toFixed(2);
+        });
 
         var currentIndex = 0; // Keep track of the current index
 
@@ -159,14 +160,16 @@ $the_query = new WP_Query( $args ); ?>
             currentIndex = (currentIndex + 1) % points.length;
             updateInfoPanel(currentIndex);
             flyToLocation(points[currentIndex].coordinates, points[currentIndex].pitch, points[currentIndex]
-                .bearing);
+                .bearing, points[currentIndex]
+                .zoom);
         });
 
         prevButton.addEventListener('click', function() {
             currentIndex = (currentIndex - 1 + points.length) % points.length;
             updateInfoPanel(currentIndex);
             flyToLocation(points[currentIndex].coordinates, points[currentIndex].pitch, points[currentIndex]
-                .bearing);
+                .bearing, points[currentIndex]
+                .zoom);
         });
         </script>
     </div>

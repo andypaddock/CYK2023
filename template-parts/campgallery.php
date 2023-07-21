@@ -38,7 +38,9 @@ if ($images) : ?>
                 <div class="mix tile gallery-video">
                     <a data-fslightbox="gallery" href="<?php echo $file['url']; ?>" class="lightbox-gallery"
                         alt="<?php echo $image_alt; ?>">
-                        <?php echo wp_get_attachment_image($image, 'large'); ?> </a>
+                        <div class="video-image">
+                            <?php echo wp_get_attachment_image($image, 'large'); ?></div>
+                    </a>
                 </div>
 
                 <?php endwhile; ?>

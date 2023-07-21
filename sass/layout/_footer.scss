@@ -26,6 +26,20 @@ footer {
   }
   .footer-logo {
     text-align: center;
+    #footer_logo {
+      path {
+        fill: $color-primary;
+      }
+    }
+    #footer_one,
+    #footer_two {
+      path {
+        fill: $color-white;
+      }
+    }
+    svg {
+      width: 20rem;
+    }
   }
   .latest-images {
     padding: 10rem 0;
