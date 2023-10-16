@@ -14,6 +14,10 @@ $heroVideo = get_field('hero_video');?>
               <a class="et-hero-tab"
                   href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_over')); ?>"><?php the_field('tab_title_over');?></a>
               <?php endif;?>
+              <?php if(get_field('display_faq_tab')):?>
+              <a class="et-hero-tab"
+                  href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_faq')); ?>"><?php the_field('tab_title_faq');?></a>
+              <?php endif;?>
               <?php if(get_field('display_accom_tab')):?>
               <a class="et-hero-tab"
                   href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_accom')); ?>"><?php the_field('tab_title_accom');?></a>
@@ -26,6 +30,25 @@ $heroVideo = get_field('hero_video');?>
               <a class="et-hero-tab"
                   href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_act')); ?>"><?php the_field('tab_title_act');?></a>
               <?php endif;?>
+              <?php if(get_field('display_rates_tab')):?>
+              <a class="et-hero-tab"
+                  href="#tab-<?php echo str_replace(' ', '', get_field('tab_title_rates')); ?>"><?php the_field('tab_title_rates');?></a>
+              <?php endif;?>
+              <?php 
+if (get_field('display_booking_tab')) {
+    $link = get_field('booking_link');
+    if ($link && $link['url'] && $link['title']) {
+        $link_url = $link['url'];
+        $link_title = $link['title'];
+        $link_target = $link['target'] ? $link['target'] : '_self';
+        ?>
+              <a class="et-hero-tab-contact" href="<?php echo esc_url( $link_url ); ?>"
+                  target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+              <?php
+    }
+}
+?>
+
 
           </div>
       </div>

@@ -1,4 +1,4 @@
-<section class="container section-card <?php the_sub_field('bg_main'); ?>"
+<section class="container section-card three-links <?php the_sub_field('bg_main'); ?>"
     <?php if (get_sub_field('section_id')) : ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
     <div class="row <?php the_sub_field('column_size'); ?>">
         <?php

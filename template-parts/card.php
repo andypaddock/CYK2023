@@ -15,7 +15,8 @@
             <?php
 $featured_posts = get_sub_field('triple_links');
 if( $featured_posts ): ?>
-            <div class="triple-cards">
+            <div
+                class="triple-cards <?php echo (count($featured_posts) === 2 || count($featured_posts) === 4) ? 'has-four-items' : ''; ?>">
                 <?php foreach( $featured_posts as $post ): 
 
         // Setup this post for WP functions (variable must be named $post).

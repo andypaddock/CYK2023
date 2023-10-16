@@ -6,11 +6,11 @@
             <h3>Point 1</h3>
             <p>Basic information about Point 1.</p>
         </div>
-        <div id="map-settings">
+        <!-- <div id="map-settings">
             <p id="map-pitch"></p>
             <p id="map-zoom"></p>
             <p id="map-bearing"></p>
-        </div>
+        </div> -->
         <div class="point-controls">
             <div class="point-controls--wrapper">
                 <div class="prev" id="prev-button"><i class='fa-thin fa-angle-left' aria-hidden='true'></i></div>
@@ -84,7 +84,7 @@ $the_query = new WP_Query( $args ); ?>
             pitch: <?php the_field('pitch','options'); ?>,
             bearing: <?php the_field('bearing','options'); ?>,
             zoom: <?php the_field('zoom','options'); ?>, // starting zoom
-            // interactive: false,
+            interactive: false,
         });
 
         map.on('load', function() {
@@ -141,15 +141,15 @@ $the_query = new WP_Query( $args ); ?>
             });
         }
 
-        map.on('move', function() {
-            var pitchElement = document.getElementById('map-pitch');
-            var zoomElement = document.getElementById('map-zoom');
-            var bearingElement = document.getElementById('map-bearing');
+        // map.on('move', function() {
+        //     var pitchElement = document.getElementById('map-pitch');
+        //     var zoomElement = document.getElementById('map-zoom');
+        //     var bearingElement = document.getElementById('map-bearing');
 
-            pitchElement.innerText = 'Pitch: ' + map.getPitch().toFixed(2);
-            zoomElement.innerText = 'Zoom: ' + map.getZoom().toFixed(2);
-            bearingElement.innerText = 'Bearing: ' + map.getBearing().toFixed(2);
-        });
+        //     pitchElement.innerText = 'Pitch: ' + map.getPitch().toFixed(2);
+        //     zoomElement.innerText = 'Zoom: ' + map.getZoom().toFixed(2);
+        //     bearingElement.innerText = 'Bearing: ' + map.getBearing().toFixed(2);
+        // });
 
         var currentIndex = 0; // Keep track of the current index
 

@@ -19,6 +19,9 @@ $pagebg = get_field('background_image');
 <?php if(get_field('display_over_tab')):?>
 <?php get_template_part('template-parts/overview'); ?>
 <?php endif;?>
+<?php if(get_field('display_faq_tab')):?>
+<?php get_template_part('template-parts/campaccord'); ?>
+<?php endif;?>
 <?php if(get_field('display_accom_tab')):?>
 <?php get_template_part('template-parts/accom'); ?>
 <?php endif;?>
@@ -28,6 +31,10 @@ $pagebg = get_field('background_image');
 <?php if(get_field('display_activities_tab')):?>
 <?php get_template_part('template-parts/activity'); ?>
 <?php endif;?>
+<?php if(get_field('display_rates_tab')):?>
+<?php get_template_part('template-parts/rates'); ?>
+<?php endif;?>
+
 
 
 

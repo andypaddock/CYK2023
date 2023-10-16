@@ -167,5 +167,6 @@ footer {
   @media only screen and (min-width: $bp-large) {
     text-align: left;
     justify-content: space-between;
+    display: block;
   }
 }

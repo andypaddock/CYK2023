@@ -8,6 +8,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media only screen and (min-width: $bp-large) {
+      min-height: 60rem;
+    }
     img {
       position: absolute;
       height: 100%;
@@ -41,6 +44,23 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
+  }
+  &.has-four-items {
+    @media only screen and (min-width: $bp-large) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+    }
+  }
+}
+
+.three-links {
+  .triple-cards {
+    @media only screen and (min-width: $bp-large) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
   }
 }
 .card {

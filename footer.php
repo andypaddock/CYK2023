@@ -14,7 +14,9 @@
 <footer id="colophon" class="container">
     <div class="row col-10 latest-images">
         <h2 class="heading-2 heading-2--light"><?php the_field('instagram_title', 'options'); ?></h2>
-        <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+        <?php if(get_field('instagram_shortcode','options')):?>
+        <?php echo do_shortcode(get_field('instagram_shortcode','options')); ?>
+        <?php endif; ?>
     </div>
     <div class="row footer-logo"> <a href="<?php echo site_url(); ?>">
             <?php get_template_part('inc/img/footerlogo'); ?>
@@ -37,33 +39,35 @@
                 <h3 class="heading-4 footer-accordian--title"><?php echo $pageElements['footer_contact_title']; ?></h3>
                 <i class="fal fa-chevron-down fa-2x" aria-hidden="true"></i>
             </div>
-            <div class="footer-accordian--content"> <div class="contacts-wrapper">
-                <div class="address">
-                <?php the_field('address', 'options'); ?>
-            </div>
-            <div class="email"><?php
+            <div class="footer-accordian--content">
+                <div class="contacts-wrapper">
+                    <div class="address">
+                        <?php the_field('address', 'options'); ?>
+                    </div>
+                    <div class="email"><?php
                                 $link = get_field('email', 'options');
                                 if ($link) :
                                     $link_url = $link['url'];
                                     $link_title = $link['title'];
                                     $link_target = $link['target'] ? $link['target'] : '_self';
                                 ?>
-                <a href="<?php echo esc_url($link_url); ?>"
-                    target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-                <?php endif; ?>
-            </div>
-            <div class="phone"><?php
+                        <a href="<?php echo esc_url($link_url); ?>"
+                            target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="phone"><?php
                                 $link = get_field('phone_number', 'options');
                                 if ($link) :
                                     $link_url = $link['url'];
                                     $link_title = $link['title'];
                                     $link_target = $link['target'] ? $link['target'] : '_self';
                                 ?>
-                <a href="<?php echo esc_url($link_url); ?>"
-                    target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
-                <?php endif; ?>
+                        <a href="<?php echo esc_url($link_url); ?>"
+                            target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
-                                </div></div>
         </div>
     </div>
     <div class="row col-8 footer-gutter">
