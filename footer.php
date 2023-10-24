@@ -19,7 +19,12 @@
         <?php endif; ?>
     </div>
     <div class="row footer-logo"> <a href="<?php echo site_url(); ?>">
-            <?php get_template_part('inc/img/footerlogo'); ?>
+            <?php 
+$image = get_field('footer_logo','options');
+$size = 'full'; // (thumbnail, medium, large, full or custom size)
+if( $image ) {
+    echo wp_get_attachment_image( $image, $size );
+}?>
         </a></div>
     <div class="row col-8 footer-accordian">
         <div class="footer-accordian--links">

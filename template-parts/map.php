@@ -85,6 +85,7 @@ $the_query = new WP_Query( $args ); ?>
             bearing: <?php the_field('bearing','options'); ?>,
             zoom: <?php the_field('zoom','options'); ?>, // starting zoom
             interactive: false,
+            attributionControl: false,
         });
 
         map.on('load', function() {

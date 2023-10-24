@@ -22,7 +22,7 @@ section.section-map {
     bottom: 0;
   }
   .marker {
-    color: #ff9452;
+    color: $color-primary;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -31,7 +31,7 @@ section.section-map {
     place-content: center;
     transition: width 0.5s, height 0.5s;
     &.active {
-      background: #ff9452;
+      background: $color-primary;
       color: #ffffff;
       width: 4rem;
       height: 4rem;
@@ -104,17 +104,26 @@ section.section-map {
     padding: 1rem 2rem;
   }
   .map-link {
-    color: $color-primary;
+    color: $color-white;
     display: block;
     text-align: center;
     text-transform: uppercase;
     font-family: $font-header;
     padding: 0 2rem 2rem;
+    &::before {
+      content: "";
+      border-bottom: 2px solid $color-white;
+      width: 5rem;
+      left: 50%;
+      display: block;
+      padding-top: 2rem;
+      margin: 0 auto 2rem;
+    }
   }
 }
 
 .custom-marker {
-  background-color: #ff9452;
+  background-color: $color-primary;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -152,4 +161,7 @@ section.section-map {
 
 .info-description {
   font-size: 14px;
+}
+.mapboxgl-ctrl-logo {
+  display: none !important;
 }

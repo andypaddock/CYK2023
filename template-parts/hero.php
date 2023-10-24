@@ -72,7 +72,7 @@ if( $link ):
         </div>
         <div class="center-wrapper">
             <div class="center bounce">
-                <i class="fa-sharp fa-solid fa-chevron-down"></i>
+                <a href="#topcontent"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
             </div>
         </div>
     </section>
@@ -118,7 +118,7 @@ if( $link ):
         </div>
         <div class="center-wrapper">
             <div class="center bounce">
-                <i class="fa-sharp fa-solid fa-chevron-down"></i>
+                <a href="#topcontent"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
             </div>
         </div>
     </section>
@@ -152,7 +152,7 @@ if( $link ):
             <?php endif; ?>
 
             <div class="center bounce">
-                <i class="fa-sharp fa-light fa-chevron-down"></i>
+                <a href="#topcontent"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
             </div>
 
         </div>
@@ -217,7 +217,12 @@ if( $link ):
         </video>
         <div class="hero-logo">
             <a href="<?php echo site_url(); ?>">
-                <?php get_template_part('inc/img/logo-main'); ?>
+                <?php 
+$image = get_field('footer_logo','options');
+$size = 'full'; // (thumbnail, medium, large, full or custom size)
+if( $image ) {
+    echo wp_get_attachment_image( $image, $size );
+}?>
             </a>
         </div>
         <div class="hero-textblock">
@@ -240,7 +245,7 @@ if( $link ):
         </div>
         <div class="center-wrapper">
             <div class="center bounce">
-                <i class="fa-sharp fa-light fa-chevron-down"></i>
+                <a href="#topcontent"><i class="fa-sharp fa-solid fa-chevron-down"></i></a>
             </div>
         </div>
 

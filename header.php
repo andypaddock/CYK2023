@@ -36,7 +36,13 @@
         <nav id="main-navigation" class="row navigation">
             <div class="logo">
                 <a href="<?php echo site_url(); ?>" title="<?php the_field('header_title', 'options'); ?>">
-                    <?php get_template_part('inc/img/logo'); ?>
+                   
+                    <?php 
+$image = get_field('footer_logo','options');
+$size = 'full'; // (thumbnail, medium, large, full or custom size)
+if( $image ) {
+    echo wp_get_attachment_image( $image, $size );
+}?>
                 </a>
             </div>
             <div id="main-menu" class="main-menu">

@@ -1,2 +1,11 @@
 .home {
+  .hero-textblock {
+    display: none !important;
+  }
+  .hero-logo {
+    img {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(82%) saturate(0%)
+        hue-rotate(279deg) brightness(106%) contrast(103%);
+    }
+  }
 }

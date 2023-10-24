@@ -92,7 +92,7 @@
   padding: 2rem 1rem;
   &:hover {
     color: white;
-    background: rgba(255, 148, 82, 0.8);
+    background: rgba($color-primary, 0.8);
     transition: all 0.5s ease;
   }
   &.active {
@@ -123,7 +123,7 @@
   bottom: 0;
   width: 0;
   height: 6px;
-  background: #ff9452;
+  background: $color-primary;
   transition: left 0.3s ease;
 }
 
