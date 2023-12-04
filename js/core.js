@@ -370,16 +370,31 @@ jQuery(document).ready(function ($) {
 
   new StickyNavigation();
 
-  var containerEl = document.querySelector(".gallery-wrapper");
-  var mixer;
+  var containerEls = document.querySelectorAll(".camp-content--gallery .row");
+  var mixers = [];
 
-  if (containerEl) {
-    mixer = mixitup(containerEl, {
-      // multifilter: {
-      //   enable: true,
-      // },
+  containerEls.forEach(function (containerEl) {
+    var mixer = mixitup(containerEl, {
+      controls: {
+        scope: "local",
+      },
     });
-  }
+    mixers.push(mixer);
+  });
+
+  // var containerEl1 = document.querySelector('[data-ref="container-99"]');
+  // var containerEl2 = document.querySelector('[data-ref="container-63"]');
+  // var containerEl3 = document.querySelector('[data-ref="container-36"]');
+
+  // var config = {
+  //   controls: {
+  //     scope: "local",
+  //   },
+  // };
+
+  // var mixer1 = mixitup(containerEl1, config);
+  // var mixer1 = mixitup(containerEl2, config);
+  // var mixer1 = mixitup(containerEl3, config);
 
   // Hide all tab content except the first one
   $(".tabgroup > div").hide();

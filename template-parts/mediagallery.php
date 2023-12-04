@@ -2,23 +2,47 @@
     <div class="row">
 
 
-        <div class="gallery-filters controls">
-            <button class="filter-all" type="button" data-filter="all">Filter:</button>
-            <button class="filters" type="button" data-filter=".gallery-image">Photos</button>
-            <button class="filters" type="button" data-filter=".gallery-video">Video</button>
-            <button class="filters" type="button" data-filter=".gallery-web">Webcam</button>
-        </div>
+        <?php
+// Assuming get_sub_field('images'), get_sub_field('videos'), and get_sub_field('web_cams') return arrays
+
+$filters = array();
+
+if (get_sub_field('images')) {
+    $filters[] = '<button class="filters" type="button" data-filter=".gallery-image">Photos</button>';
+}
+
+if (get_sub_field('videos')) {
+    $filters[] = '<button class="filters" type="button" data-filter=".gallery-video">Video</button>';
+}
+
+if (get_sub_field('web_cams')) {
+    $filters[] = '<button class="filters" type="button" data-filter=".gallery-web">Webcam</button>';
+}
+
+// Check if there is more than one filter
+if (count($filters) > 1) {
+    echo '<div class="gallery-filters controls">';
+    echo '<button class="filter-all" type="button" data-filter="all">Filter:</button>';
+    
+    // Output the filter buttons
+    foreach ($filters as $filter) {
+        echo $filter;
+    }
+
+    echo '</div>';
+}
+?>
 
 
 
 
-
-        <?php $images = get_sub_field('images');
+        <div class="outer-container gallery-outer mb10">
+            <div class="gallery-wrapper">
+                <?php $images = get_sub_field('images');
 $size = 'large'; // (thumbnail, medium, large, full or custom size)
 $original = 'full';
 if ($images) : ?>
-        <div class="outer-container gallery-outer mb10">
-            <div class="gallery-wrapper">
+
                 <?php foreach ($images as $image_id) :
                 $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE); ?>
                 <div class="mix gallery-image">
@@ -27,7 +51,7 @@ if ($images) : ?>
                         <?php echo wp_get_attachment_image($image_id, $size); ?></a>
                 </div>
                 <?php endforeach; ?>
-
+                <?php endif; ?>
                 <?php if( have_rows('videos') ): ?>
                 <?php while( have_rows('videos') ): the_row(); 
         $image = get_sub_field('poster_image');
@@ -58,6 +82,6 @@ if ($images) : ?>
 
             </div>
         </div>
-        <?php endif; ?>
+
     </div>
 </section>
