@@ -348,6 +348,12 @@
         @include backgroundCover;
         height: 20rem;
         width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        .webcam-time {
+          color: white;
+        }
       }
     }
     .gallery-filters {
