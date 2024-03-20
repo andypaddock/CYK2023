@@ -390,3 +390,13 @@ function my_acf_init()
 }
 
 add_action('acf/init', 'my_acf_init');
+
+
+// Enter custom JS TO ADMIN AREA
+add_action( 'admin_print_scripts-post-new.php', 'banner_admin_script', 11 );
+add_action( 'admin_print_scripts-post.php', 'banner_admin_script', 11 );
+
+function banner_admin_script() {
+    global $post_type;
+        wp_enqueue_script( 'camps-script', get_template_directory_uri().'/admin-settings/admin.js', '', '', true ); // "TRUE" - ADDS JS TO FOOTER
+}

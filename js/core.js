@@ -467,3 +467,27 @@ activityTriggers.forEach(function (trigger) {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const triggers = document.querySelectorAll(".hotspot-image");
+  const targets = document.querySelectorAll(".info-panel");
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", function () {
+      const targetClass = trigger.classList[1].split("-")[1];
+
+      // Toggle 'active' class on the clicked trigger and its corresponding target
+      triggers.forEach((t) => {
+        t.classList.remove("active");
+      });
+      trigger.classList.add("active");
+
+      targets.forEach((t) => {
+        t.classList.remove("active");
+      });
+      document
+        .querySelector(".target-" + targetClass)
+        .classList.toggle("active");
+    });
+  });
+});

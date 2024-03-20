@@ -96,6 +96,8 @@
 <?php get_template_part('template-parts/mediagallery'); ?>
 <?php elseif (get_row_layout() == 'sublinks') : ?>
 <?php get_template_part('template-parts/sublinks'); ?>
+<?php elseif (get_row_layout() == 'hotspot') : ?>
+<?php get_template_part('template-parts/hotspot'); ?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>
