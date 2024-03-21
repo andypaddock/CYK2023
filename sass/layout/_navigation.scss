@@ -230,7 +230,7 @@ a {
           letter-spacing: 1.4px;
           text-align: center;
           &:hover {
-            color: #333;
+            color: $color-primary;
           }
 
           @media only screen and (min-width: $bp-large) {

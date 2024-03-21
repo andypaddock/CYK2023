@@ -125,3 +125,51 @@
     color: $color-primary;
   }
 }
+.file--heading,
+.file--content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  @media only screen and (min-width: $bp-medium) {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .button {
+    margin: 0;
+  }
+}
+.file--heading {
+  border-bottom: 1px solid $color-primary;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  &-date {
+    .heading-4 {
+      font-weight: 300;
+    }
+  }
+}
+.file--content {
+  padding-bottom: 2rem;
+
+  .title {
+    font-weight: 400;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+}
+.download-button {
+  text-align: center;
+  grid-column: span 2;
+  padding: 3rem 0;
+  .button {
+    width: 100%;
+  }
+  @media only screen and (min-width: $bp-medium) {
+    text-align: right;
+    grid-column: span 1;
+    padding: 0;
+    .button {
+      width: unset;
+    }
+  }
+}

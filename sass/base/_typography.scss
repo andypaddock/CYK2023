@@ -91,6 +91,9 @@ p {
 .font-italic {
   font-style: italic;
 }
+.font-default {
+  font-family: $font-primary;
+}
 
 .read-more p:not(:first-child) {
   overflow: hidden;

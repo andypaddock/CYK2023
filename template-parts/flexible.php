@@ -98,6 +98,8 @@
 <?php get_template_part('template-parts/sublinks'); ?>
 <?php elseif (get_row_layout() == 'hotspot') : ?>
 <?php get_template_part('template-parts/hotspot'); ?>
+<?php elseif (get_row_layout() == 'downloads') : ?>
+<?php get_template_part('template-parts/downloads'); ?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

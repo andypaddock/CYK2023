@@ -472,6 +472,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const triggers = document.querySelectorAll(".hotspot-image");
   const targets = document.querySelectorAll(".info-panel");
 
+  // Add 'active' class to the first trigger and its corresponding target on page load
+  triggers[0].classList.add("active");
+  targets[0].classList.add("active");
+
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", function () {
       const targetClass = trigger.classList[1].split("-")[1];
