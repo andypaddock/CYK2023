@@ -11,15 +11,26 @@ if( $image ) {
 }?>
 
                     <?php if( have_rows('hotspots') ): ?>
-                    <?php while( have_rows('hotspots') ): the_row(); 
-        $image = get_sub_field('hotspot_image');
-        ?>
+                    <?php while( have_rows('hotspots') ): the_row(); ?>
                     <div class="hotspot-image trigger-<?php echo get_row_index(); ?>"
                         style="--bottom: <?php the_sub_field('from_bottom');?>% ; --left: <?php the_sub_field('from_left');?>%">
                         <span class="hotspot-number"><?php echo get_row_index(); ?></span>
                     </div>
-                    <div class="info-panel hotspot-info target-<?php echo get_row_index(); ?>">
-                        <?php echo wp_get_attachment_image( $image, 'full' ); ?>
+                    <?php endwhile; ?>
+
+                    <?php endif; ?>
+
+                </div>
+
+
+
+                <?php if( have_rows('hotspots') ): ?>
+                <?php while( have_rows('hotspots') ): the_row(); 
+        $image = get_sub_field('hotspot_image');
+        ?>
+                <div class="info-panel hotspot-info target-<?php echo get_row_index(); ?>">
+                    <?php echo wp_get_attachment_image( $image, 'full' ); ?>
+                    <div class="details">
                         <h3><?php the_sub_field('title');?></h3>
                         <p><?php the_sub_field('description');?></p>
                         <?php 
@@ -33,11 +44,10 @@ if( $link ):
                             target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                         <?php endif; ?>
                     </div>
-                    <?php endwhile; ?>
-
-                    <?php endif; ?>
-
                 </div>
+                <?php endwhile; ?>
+
+                <?php endif; ?>
             </div>
         </div>
     </div>
